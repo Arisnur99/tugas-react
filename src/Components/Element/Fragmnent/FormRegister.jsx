@@ -121,7 +121,7 @@ function FormRegister({ onLogin }) {
         <div className="text-center mt-6 text-sm text-gray-600">
           Sudah punya akun?{" "}
           <Link to="/login" className="text-green-600">
-            Daftar di sini
+            Login di sini
           </Link>
         </div>
       </form>

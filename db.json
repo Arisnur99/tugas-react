@@ -1,34 +1,26 @@
 {
   "patients": [
     {
-      "name": "Ahmad m",
-      "age": "38",
-      "id": "1"
-    },
-    {
-      "id": "2",
-      "name": "Siti",
-      "age": 25
-    },
-    {
       "name": "aris",
       "age": "20",
-      "id": "b938"
+      "address": "semarang",
+      "phone": "09111",
+      "diagnosis": "demam",
+      "medicalHistory": "flu",
+      "appointmentCare": "29-06-225",
+      "status": "menunggu",
+      "id": "5c2b"
     },
     {
-      "id": "1f23",
-      "name": "amrul ",
-      "age": "15"
-    },
-    {
-      "id": "682d",
-      "name": "hanifah",
-      "age": "10"
-    },
-    {
-      "id": "e4b3",
-      "name": "zulaikah",
-      "age": "20"
+      "id": "2001",
+      "name": "amrul",
+      "age": "15",
+      "address": "solo",
+      "phone": "08111",
+      "diagnosis": "sesak",
+      "medicalHistory": "tidak jelas",
+      "appointmentCare": "20-06-2025",
+      "status": "meunggu"
     }
   ]
 }
