@@ -1,17 +1,6 @@
 {
   "patients": [
     {
-      "name": "aris",
-      "age": "20",
-      "address": "semarang",
-      "phone": "09111",
-      "diagnosis": "demam",
-      "medicalHistory": "flu",
-      "appointmentCare": "29-06-225",
-      "status": "menunggu",
-      "id": "5c2b"
-    },
-    {
       "id": "2001",
       "name": "amrul",
       "age": "15",
@@ -21,6 +10,73 @@
       "medicalHistory": "tidak jelas",
       "appointmentCare": "20-06-2025",
       "status": "meunggu"
+    },
+    {
+      "id": "92d6",
+      "name": "nayla",
+      "age": "10",
+      "address": "semarang",
+      "phone": "0511",
+      "diagnosis": "pusing",
+      "medicalHistory": "panas",
+      "appointmentCare": "10-05-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "774a",
+      "name": "aris",
+      "age": "20",
+      "address": "semarang",
+      "phone": "09111",
+      "diagnosis": "pusing",
+      "medicalHistory": "demam",
+      "appointmentCare": "20-10-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "c947",
+      "name": "budi",
+      "age": "10",
+      "address": "semarang",
+      "phone": "0911",
+      "diagnosis": "pusing",
+      "medicalHistory": "flu",
+      "appointmentCare": "20-10-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "3cd5",
+      "name": "umar",
+      "age": "5",
+      "address": "solo",
+      "phone": "0911",
+      "diagnosis": "pusing",
+      "medicalHistory": "sesak",
+      "appointmentCare": "20-8-225",
+      "status": "menunggu"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "name": "Administrator"
+    },
+    {
+      "id": "2",
+      "username": "dokter1",
+      "password": "dokter123",
+      "role": "dokter",
+      "name": "Dr. Budi"
+    },
+    {
+      "id": "3",
+      "username": "perawat1",
+      "password": "perawat123",
+      "role": "perawat",
+      "name": "Suster Rina"
     }
   ]
 }

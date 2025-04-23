@@ -10,13 +10,24 @@ export default function FormLogin({ onLogin }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.username === "admin" && formData.password === "123456") {
-      onLogin?.();
-    } else {
-      alert("Username atau Password salah!");
+    try {
+      const res = await fetch(
+        `http://localhost:3001/users?username=${formData.username}&password=${formData.password}`
+      );
+      const data = await res.json();
+
+      if (data.length > 0) {
+        alert("Login berhasil!");
+        onLogin?.(data[0]); // Kirim data user ke parent jika perlu
+      } else {
+        alert("Username atau Password salah!");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Terjadi kesalahan saat login.");
     }
   };
 
