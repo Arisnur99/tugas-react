@@ -37,15 +37,21 @@ export default function FormLogin({ onLogin }) {
         onLogin?.(data[0]);
         navigate("/dashboard"); // 🚀 redirect ke halaman dashboard
       } else {
-        alert("Username atau Password salah!");
+        Swal.fire({
+          title: "Login Gagal",
+          text: "Username atau Password salah!",
+          icon: "error",
+          confirmButtonText: "Coba Lagi",
+          confirmButtonColor: "#d33",
+        });
       }
     } catch (error) {
       console.error("Login error:", error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>',
+        text: "Terjadi kesalahan!",
+        footer: '<a href="#">Kenapa saya mengalami masalah ini?</a>',
       });
     }
   };

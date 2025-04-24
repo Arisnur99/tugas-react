@@ -25,7 +25,13 @@ function FormRegister() {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert("Password dan Konfirmasi Password tidak sama!");
+      Swal.fire({
+        title: "Gagal!",
+        text: "Password dan Konfirmasi Password tidak sama!",
+        icon: "error",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Oke, saya mengerti",
+      });
       return;
     }
 
@@ -55,11 +61,23 @@ function FormRegister() {
 
         navigate("/login"); // 🚀 Redirect ke halaman login
       } else {
-        alert("Pendaftaran gagal. Coba lagi!");
+        Swal.fire({
+          title: "Pendaftaran Gagal",
+          text: "Coba lagi beberapa saat lagi!",
+          icon: "error",
+          confirmButtonText: "Oke",
+          confirmButtonColor: "#d33",
+        });
       }
     } catch (error) {
       console.error("Registration error:", error);
-      alert("Terjadi kesalahan saat mendaftar.");
+      Swal.fire({
+        title: "Terjadi Kesalahan",
+        text: "Gagal mendaftar. Silakan coba lagi nanti.",
+        icon: "error",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Tutup",
+      });
     }
   };
 
