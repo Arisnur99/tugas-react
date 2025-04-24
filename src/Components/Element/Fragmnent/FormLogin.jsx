@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 export default function FormLogin({ onLogin }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -22,8 +23,15 @@ export default function FormLogin({ onLogin }) {
       );
       const data = await res.json();
 
+      console.log("Data hasil login:", data);
+
       if (data.length > 0) {
-        alert("Login berhasil!");
+        // alert("Login berhasil!");
+        Swal.fire({
+          title: "Selamat anda berhasil masuk!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
         onLogin?.(data[0]);
         navigate("/dashboard"); // 🚀 redirect ke halaman dashboard
       } else {
@@ -31,7 +39,12 @@ export default function FormLogin({ onLogin }) {
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert("Terjadi kesalahan saat login.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
     }
   };
 

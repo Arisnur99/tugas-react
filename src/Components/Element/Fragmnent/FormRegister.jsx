@@ -2,8 +2,8 @@ import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-
-function FormRegister({ onLogin }) {
+import Swal from "sweetalert2";
+function FormRegister() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -43,7 +43,11 @@ function FormRegister({ onLogin }) {
       });
 
       if (response.ok) {
-        alert("Pendaftaran berhasil!");
+        Swal.fire({
+          title: "Selamat anda berhasil mendaftar!",
+          text: "You clicked the button!",
+          icon: "success",
+        });
         navigate("/login"); // 🚀 Redirect ke halaman login
       } else {
         alert("Pendaftaran gagal. Coba lagi!");
