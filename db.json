@@ -34,50 +34,6 @@
       "status": "menunggu"
     },
     {
-      "id": "c947",
-      "name": "budi",
-      "age": "10",
-      "address": "semarang",
-      "phone": "0911",
-      "diagnosis": "pusing",
-      "medicalHistory": "flu",
-      "appointmentCare": "20-10-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "3cd5",
-      "name": "umar",
-      "age": "5",
-      "address": "solo",
-      "phone": "0911",
-      "diagnosis": "pusing",
-      "medicalHistory": "sesak",
-      "appointmentCare": "20-8-225",
-      "status": "menunggu"
-    },
-    {
-      "id": "89c9",
-      "name": "alif",
-      "age": "20",
-      "address": "kendal",
-      "phone": "05111",
-      "diagnosis": "demam",
-      "medicalHistory": "sesak",
-      "appointmentCare": "10-20-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "10c0",
-      "name": "alif",
-      "age": "20",
-      "address": "kendal",
-      "phone": "06111",
-      "diagnosis": "demam",
-      "medicalHistory": "sesak",
-      "appointmentCare": "20-06-2025",
-      "status": "menunggu"
-    },
-    {
       "id": "5c3a",
       "name": "alif",
       "age": "20",
@@ -86,6 +42,28 @@
       "diagnosis": "demam",
       "medicalHistory": "sesak",
       "appointmentCare": "20-10-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "7c08",
+      "name": "andi",
+      "age": "30",
+      "address": "jogja",
+      "phone": "09111",
+      "diagnosis": "gatal",
+      "medicalHistory": "alergi",
+      "appointmentCare": "20-06-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "e7d1",
+      "name": "hanifah",
+      "age": "25",
+      "address": "mangkang",
+      "phone": "04111",
+      "diagnosis": "pingsan",
+      "medicalHistory": "lemas",
+      "appointmentCare": "15-05-2025",
       "status": "menunggu"
     }
   ],

@@ -1,6 +1,8 @@
 import { FaEdit, FaTrash, FaPlus, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
+
 
 const PatienTable = () => {
   const [patients, setPatients] = useState([]);
@@ -18,10 +20,26 @@ const PatienTable = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!confirm("Yakin ingin hapus pasien ini?")) return;
-    await fetch(`http://localhost:3001/patients/${id}`, { method: "DELETE" });
-    fetchPatients();
+    const result = await Swal.fire({
+      title: "Yakin ingin hapus pasien ini?",
+      text: "Data pasien yang dihapus tidak bisa dikembalikan!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+    });
+  
+    if (result.isConfirmed) {
+      await fetch(`http://localhost:3001/patients/${id}`, {
+        method: "DELETE",
+      });
+      Swal.fire("Terhapus!", "Data pasien berhasil dihapus.", "success");
+      fetchPatients(); // refresh data
+    }
   };
+  
 
   const filtered = patients.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
@@ -38,13 +56,13 @@ const PatienTable = () => {
         <h1 className="text-2xl font-bold mb-8">Puskesmas</h1>
         <nav className="space-y-3">
           <Link to="/dashboard" className="block hover:text-green-300">
-            Dashboard
+            Data Pasien
           </Link>
-          <Link to="/manajemen" className="block hover:text-green-300">
-            Manajemen Pasien
+          <Link to="/" className="block hover:text-green-300">
+            Dokter
           </Link>
           <Link to="/logout" className="block hover:text-green-300">
-            Logout
+            Janji Temu
           </Link>
         </nav>
       </aside>

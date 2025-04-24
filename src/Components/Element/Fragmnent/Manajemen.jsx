@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
-import PatienTable from "./PatienTable";
+// import { FaEdit, FaTrash } from "react-icons/fa";
+// import PatienTable from "./PatienTable";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Manajemen() {
   const [Patientable, setPatientTable] = useState([]);
@@ -33,7 +35,26 @@ function Manajemen() {
 
   const handleSubmit = async () => {
     const isFormValid = Object.values(form).every((val) => val.trim() !== "");
-    if (!isFormValid) return alert("Harap lengkapi semua data pasien.");
+    if (!isFormValid) {
+      Swal.fire({
+        icon: "warning",
+        title: "Lengkapi Data!",
+        text: "Harap isi semua field sebelum menyimpan.",
+      });
+      return;
+    }
+
+    const result = await Swal.fire({
+      title: editId
+        ? "Yakin ingin update data pasien ini?"
+        : "Yakin ingin simpan data pasien ini?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: editId ? "Ya, update!" : "Ya, simpan!",
+      cancelButtonText: "Batal",
+    });
+
+    if (!result.isConfirmed) return;
 
     const method = editId ? "PUT" : "POST";
     const url = editId
@@ -47,6 +68,13 @@ function Manajemen() {
     });
 
     if (res.ok) {
+      Swal.fire({
+        icon: "success",
+        title: editId ? "Berhasil diupdate!" : "Berhasil disimpan!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
       setForm({
         name: "",
         age: "",
@@ -59,12 +87,32 @@ function Manajemen() {
       });
       setEditId(null);
 
-      // Tunggu sebentar agar json-server menulis data dulu
       setTimeout(() => {
-        navigate("/patients");
-      }, 300); // 300ms cukup
+        navigate("/patients"); // sesuaikan dengan rute daftar pasien
+      }, 1000);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Gagal!",
+        text: "Terjadi kesalahan saat menyimpan data.",
+      });
     }
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    if (id) {
+      setEditId(id);
+      fetch(`http://localhost:3001/patients/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setForm(data);
+        });
+    }
+  }, [location.search]);
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
