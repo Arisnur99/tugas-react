@@ -27,10 +27,12 @@ export default function FormLogin({ onLogin }) {
 
       if (data.length > 0) {
         // alert("Login berhasil!");
-        Swal.fire({
-          title: "Selamat anda berhasil masuk!",
-          text: "You clicked the button!",
-          icon: "success"
+        await Swal.fire({
+          title: "Login Berhasil!",
+          text: "Selamat datang!",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
         });
         onLogin?.(data[0]);
         navigate("/dashboard"); // 🚀 redirect ke halaman dashboard
@@ -43,7 +45,7 @@ export default function FormLogin({ onLogin }) {
         icon: "error",
         title: "Oops...",
         text: "Something went wrong!",
-        footer: '<a href="#">Why do I have this issue?</a>'
+        footer: '<a href="#">Why do I have this issue?</a>',
       });
     }
   };

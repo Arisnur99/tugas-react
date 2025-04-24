@@ -43,11 +43,16 @@ function FormRegister() {
       });
 
       if (response.ok) {
-        Swal.fire({
-          title: "Selamat anda berhasil mendaftar!",
-          text: "You clicked the button!",
+        await Swal.fire({
+          title: "Registrasi Berhasil!",
+          text: "Silakan login untuk melanjutkan.",
           icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
         });
+
+        navigate("/dashboard");
+
         navigate("/login"); // 🚀 Redirect ke halaman login
       } else {
         alert("Pendaftaran gagal. Coba lagi!");
