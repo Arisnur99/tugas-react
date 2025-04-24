@@ -8,8 +8,8 @@
       "phone": "08111",
       "diagnosis": "sesak",
       "medicalHistory": "tidak jelas",
-      "appointmentCare": "20-06-2025",
-      "status": "meunggu"
+      "appointmentCare": "24-06-2025",
+      "status": "menunggu"
     },
     {
       "id": "92d6",
@@ -64,6 +64,50 @@
       "diagnosis": "pingsan",
       "medicalHistory": "lemas",
       "appointmentCare": "15-05-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "4782",
+      "name": "umar",
+      "age": "5",
+      "address": "ungaran",
+      "phone": "03111",
+      "diagnosis": "panas",
+      "medicalHistory": "pusing",
+      "appointmentCare": "26-04-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "00dc",
+      "name": "iman",
+      "age": "15",
+      "address": "kaliwngu",
+      "phone": "02111",
+      "diagnosis": "sesak",
+      "medicalHistory": "pusing",
+      "appointmentCare": "20-05-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "6876",
+      "name": "zaki",
+      "age": "20",
+      "address": "mangkang kulon",
+      "phone": "04111",
+      "diagnosis": "sakit perut",
+      "medicalHistory": "magh",
+      "appointmentCare": "20-02-2022",
+      "status": "menunggu"
+    },
+    {
+      "id": "350b",
+      "name": "arfi",
+      "age": "10",
+      "address": "mangkang",
+      "phone": "0211",
+      "diagnosis": "demam",
+      "medicalHistory": "panas",
+      "appointmentCare": "20-02-2025",
       "status": "menunggu"
     }
   ],

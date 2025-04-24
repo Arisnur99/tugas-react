@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
-
 const PatienTable = () => {
   const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
@@ -30,7 +29,7 @@ const PatienTable = () => {
       confirmButtonText: "Ya, hapus!",
       cancelButtonText: "Batal",
     });
-  
+
     if (result.isConfirmed) {
       await fetch(`http://localhost:3001/patients/${id}`, {
         method: "DELETE",
@@ -39,7 +38,6 @@ const PatienTable = () => {
       fetchPatients(); // refresh data
     }
   };
-  
 
   const filtered = patients.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
@@ -112,6 +110,8 @@ const PatienTable = () => {
                 <th className="p-2 border">Alamat</th>
                 <th className="p-2 border">Telepon</th>
                 <th className="p-2 border">Diagnosis</th>
+                <th className="p-2 border">Riwayat medis</th>
+                <th className="p-2 border">Status</th>
                 <th className="p-2 border">Aksi</th>
               </tr>
             </thead>
@@ -124,6 +124,8 @@ const PatienTable = () => {
                     <td className="p-2 border">{patient.address}</td>
                     <td className="p-2 border">{patient.phone}</td>
                     <td className="p-2 border">{patient.diagnosis}</td>
+                    <td className="p-2 border">{patient.medicalHistory}</td>
+                    <td className="p-2 border">{patient.status}</td>
                     <td className="p-2 border text-center space-x-2">
                       {/* Tombol edit bisa diaktifkan kembali jika mau bawa ke manajemen */}
                       <Link
