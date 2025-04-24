@@ -54,6 +54,39 @@
       "medicalHistory": "sesak",
       "appointmentCare": "20-8-225",
       "status": "menunggu"
+    },
+    {
+      "id": "89c9",
+      "name": "alif",
+      "age": "20",
+      "address": "kendal",
+      "phone": "05111",
+      "diagnosis": "demam",
+      "medicalHistory": "sesak",
+      "appointmentCare": "10-20-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "10c0",
+      "name": "alif",
+      "age": "20",
+      "address": "kendal",
+      "phone": "06111",
+      "diagnosis": "demam",
+      "medicalHistory": "sesak",
+      "appointmentCare": "20-06-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "5c3a",
+      "name": "alif",
+      "age": "20",
+      "address": "kendal",
+      "phone": "0111",
+      "diagnosis": "demam",
+      "medicalHistory": "sesak",
+      "appointmentCare": "20-10-2025",
+      "status": "menunggu"
     }
   ],
   "users": [
@@ -77,6 +110,12 @@
       "password": "perawat123",
       "role": "perawat",
       "name": "Suster Rina"
+    },
+    {
+      "id": "5168",
+      "username": "aris",
+      "email": "albarbasy2018@gmail.com",
+      "password": "12345"
     }
   ]
 }

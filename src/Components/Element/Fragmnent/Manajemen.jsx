@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import PatienTable from "./PatienTable";
+import { useNavigate } from "react-router-dom";
 
 function Manajemen() {
   const [Patientable, setPatientTable] = useState([]);
-  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -29,7 +32,9 @@ function Manajemen() {
   }, []);
 
   const handleSubmit = async () => {
-    if (!form.name || !form.age) return alert("Lengkapi data pasien.");
+    const isFormValid = Object.values(form).every((val) => val.trim() !== "");
+    if (!isFormValid) return alert("Harap lengkapi semua data pasien.");
+
     const method = editId ? "PUT" : "POST";
     const url = editId
       ? `http://localhost:3001/patients/${editId}`
@@ -53,7 +58,11 @@ function Manajemen() {
         status: "",
       });
       setEditId(null);
-      fetchPatients();
+
+      // Tunggu sebentar agar json-server menulis data dulu
+      setTimeout(() => {
+        navigate("/patients");
+      }, 300); // 300ms cukup
     }
   };
 
@@ -73,12 +82,12 @@ function Manajemen() {
         <ul>
           <li className="mb-4">
             <a href="#" className="hover:text-green-300">
-              Dashboard
+              Home
             </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">
-              Pasien
+            <a href="datapasien" className="hover:text-green-300">
+              Data Pasien
             </a>
           </li>
           <li className="mb-4">
@@ -104,12 +113,12 @@ function Manajemen() {
           <ul>
             <li className="mb-4">
               <a href="#" className="hover:text-green-300">
-                Dashboard
+                Home
               </a>
             </li>
             <li className="mb-4">
               <a href="#" className="hover:text-green-300">
-                Pasien
+                Data Pasien
               </a>
             </li>
             <li className="mb-4">
@@ -166,13 +175,6 @@ function Manajemen() {
             >
               {editId ? "Update" : "Tambah"}
             </button>
-            <input
-              type="text"
-              placeholder="Cari pasien..."
-              className="border rounded w-full sm:w-64 p-2"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
           </div>
 
           {/* Tabel Pasien

@@ -15,7 +15,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/manajemen" element={<Manajemen />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/datapasien" element={<PatienTable />} />
+        <Route path="/patients" element={<PatienTable />} />
       </Routes>
     </Router>
   );

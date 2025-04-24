@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function FormRegister({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -10,20 +11,47 @@ function FormRegister({ onLogin }) {
     confirmPassword: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const navigate = useNavigate(); // 👈 Ini bagian penting
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert("Password dan Konfirmasi Password tidak sama!");
       return;
     }
 
-    alert("Pendaftaran berhasil!");
-    onLogin();
+    try {
+      const response = await fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      if (response.ok) {
+        alert("Pendaftaran berhasil!");
+        navigate("/login"); // 🚀 Redirect ke halaman login
+      } else {
+        alert("Pendaftaran gagal. Coba lagi!");
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Terjadi kesalahan saat mendaftar.");
+    }
   };
 
   return (
@@ -80,7 +108,7 @@ function FormRegister({ onLogin }) {
               <FaLock className="text-gray-600" />
             </span>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -88,6 +116,13 @@ function FormRegister({ onLogin }) {
               required
               className="w-full px-4 py-2 outline-none text-sm sm:text-base"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="px-3 text-gray-600"
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
           </div>
         </div>
 
@@ -100,7 +135,7 @@ function FormRegister({ onLogin }) {
               <FaLock className="text-gray-600" />
             </span>
             <input
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
@@ -108,6 +143,13 @@ function FormRegister({ onLogin }) {
               required
               className="w-full px-4 py-2 outline-none text-sm sm:text-base"
             />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword((prev) => !prev)}
+              className="px-3 text-gray-600"
+            >
+              {showConfirmPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
           </div>
         </div>
 

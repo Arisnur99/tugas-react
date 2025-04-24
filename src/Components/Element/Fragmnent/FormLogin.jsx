@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { FaUser, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 export default function FormLogin({ onLogin }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // 👈 untuk redirect
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +24,8 @@ export default function FormLogin({ onLogin }) {
 
       if (data.length > 0) {
         alert("Login berhasil!");
-        onLogin?.(data[0]); // Kirim data user ke parent jika perlu
+        onLogin?.(data[0]);
+        navigate("/dashboard"); // 🚀 redirect ke halaman dashboard
       } else {
         alert("Username atau Password salah!");
       }
@@ -66,7 +70,7 @@ export default function FormLogin({ onLogin }) {
               <FaLock className="text-gray-600" />
             </span>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -74,6 +78,13 @@ export default function FormLogin({ onLogin }) {
               required
               className="w-full px-4 py-2 outline-none text-sm sm:text-base"
             />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="px-3 text-gray-600"
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
           </div>
         </div>
 

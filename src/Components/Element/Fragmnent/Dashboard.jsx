@@ -23,9 +23,6 @@ export default function Dashboard() {
         </div>
         <nav className="mt-6 space-y-4">
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
-            Dashboard
-          </a>
-          <a href="#" className="block hover:bg-green-600 p-2 rounded">
             Data Pasien
           </a>
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
@@ -33,9 +30,6 @@ export default function Dashboard() {
           </a>
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
             Janji Temu
-          </a>
-          <a href="#" className="block hover:bg-green-600 p-2 rounded">
-            Laporan
           </a>
         </nav>
       </aside>
