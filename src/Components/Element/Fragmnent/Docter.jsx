@@ -6,6 +6,8 @@ const DoctorTable = () => {
   const [doctors, setDoctors] = useState([]);
   const [newSchedule, setNewSchedule] = useState("");
   const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [doctorName, setDoctorName] = useState("");
+  const [doctorSpecialty, setDoctorSpecialty] = useState("");
 
   useEffect(() => {
     // Mengambil data dokter dari JSON Server
@@ -23,6 +25,39 @@ const DoctorTable = () => {
       });
   }, []);
 
+  const handleAddDoctor = () => {
+    if (!doctorName || !doctorSpecialty) {
+      Swal.fire({
+        icon: "warning",
+        title: "Peringatan!",
+        text: "Nama dan Spesialis dokter harus diisi!",
+      });
+      return;
+    }
+
+    const newDoctor = {
+      name: doctorName,
+      specialty: doctorSpecialty,
+      schedule: "",
+    };
+
+    axios
+      .post("http://localhost:3001/doctors", newDoctor)
+      .then((response) => {
+        Swal.fire({
+          icon: "success",
+          title: "Sukses!",
+          text: `Dokter berhasil ditambahkan: ${response.data.name}`,
+        });
+        setDoctorName(""); // Clear input
+        setDoctorSpecialty(""); // Clear input
+        setDoctors((prevDoctors) => [...prevDoctors, response.data]);
+      })
+      .catch((error) => {
+        console.error("Gagal menambahkan dokter:", error);
+      });
+  };
+
   const handleAddSchedule = () => {
     if (!selectedDoctor || !newSchedule) {
       Swal.fire({
@@ -30,17 +65,14 @@ const DoctorTable = () => {
         title: "Peringatan!",
         text: "Semua field harus diisi!",
       });
-
       return;
     }
 
-    // Membuat data jadwal baru
     const scheduleData = {
       doctorId: selectedDoctor,
       schedule: newSchedule,
     };
 
-    // Mengirim data jadwal ke server
     axios
       .post("http://localhost:3001/schedules", scheduleData)
       .then((response) => {
@@ -49,9 +81,8 @@ const DoctorTable = () => {
           title: "Sukses!",
           text: `Jadwal berhasil ditambahkan: ${response.data}`,
         });
-        setNewSchedule(""); // Clear input
-        setSelectedDoctor(""); // Clear selected doctor
-        // Perbarui data jadwal dokter setelah berhasil menambah jadwal
+        setNewSchedule("");
+        setSelectedDoctor("");
         const updatedDoctors = doctors.map((doctor) =>
           doctor.id === selectedDoctor
             ? { ...doctor, schedule: newSchedule }
@@ -107,6 +138,43 @@ const DoctorTable = () => {
               className="bg-green-500 text-white px-4 py-2 rounded-lg"
             >
               Tambah Jadwal
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Input untuk Tambah Dokter */}
+      <div className="mb-6">
+        <h3 className="text-xl font-semibold text-gray-700 mb-4">
+          Tambah Dokter
+        </h3>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-gray-700">Nama Dokter</label>
+            <input
+              type="text"
+              value={doctorName}
+              onChange={(e) => setDoctorName(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+              placeholder="Masukkan nama dokter"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Spesialis</label>
+            <input
+              type="text"
+              value={doctorSpecialty}
+              onChange={(e) => setDoctorSpecialty(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+              placeholder="Masukkan spesialis dokter"
+            />
+          </div>
+          <div>
+            <button
+              onClick={handleAddDoctor}
+              className="bg-green-500 text-white px-4 py-2 rounded-lg"
+            >
+              Tambah Dokter
             </button>
           </div>
         </div>
