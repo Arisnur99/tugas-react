@@ -3,6 +3,7 @@ import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
+
 function FormRegister() {
   const [formData, setFormData] = useState({
     username: "",
@@ -56,8 +57,6 @@ function FormRegister() {
           timer: 2000,
           showConfirmButton: false,
         });
-
-        navigate("/dashboard");
 
         navigate("/login"); // 🚀 Redirect ke halaman login
       } else {

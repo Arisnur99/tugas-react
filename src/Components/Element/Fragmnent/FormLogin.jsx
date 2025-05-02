@@ -113,7 +113,15 @@ export default function FormLogin({ onLogin }) {
           <button
             type="button"
             className="text-xs sm:text-sm text-green-600 hover:underline"
-            onClick={() => alert("Fitur lupa password belum tersedia.")}
+            onClick={() =>
+              Swal.fire({
+                title: "Fitur Belum Tersedia",
+                text: "Fitur lupa password belum tersedia.",
+                icon: "info",
+                confirmButtonText: "Oke",
+                confirmButtonColor: "#3085d6",
+              })
+            }
           >
             Lupa password?
           </button>

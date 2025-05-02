@@ -8,25 +8,14 @@
       "phone": "08111",
       "diagnosis": "sesak",
       "medicalHistory": "tidak jelas",
-      "appointmentCare": "24-06-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "92d6",
-      "name": "nayla",
-      "age": "10",
-      "address": "semarang",
-      "phone": "0511",
-      "diagnosis": "pusing",
-      "medicalHistory": "panas",
-      "appointmentCare": "10-05-2025",
+      "appointmentCare": "24-07-2025",
       "status": "menunggu"
     },
     {
       "id": "774a",
       "name": "aris",
       "age": "20",
-      "address": "semarang",
+      "address": "wonosari",
       "phone": "09111",
       "diagnosis": "pusing",
       "medicalHistory": "demam",
@@ -70,7 +59,7 @@
       "id": "00dc",
       "name": "iman",
       "age": "15",
-      "address": "kaliwngu",
+      "address": "kaliwungu",
       "phone": "02111",
       "diagnosis": "sesak",
       "medicalHistory": "pusing",
@@ -97,6 +86,28 @@
       "diagnosis": "demam",
       "medicalHistory": "panas",
       "appointmentCare": "20-02-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "9553",
+      "name": "rizal",
+      "age": "5",
+      "address": "ungaran",
+      "phone": "04111",
+      "diagnosis": "panas",
+      "medicalHistory": "pilek",
+      "appointmentCare": "20-05-2025",
+      "status": "menunggu"
+    },
+    {
+      "id": "4200",
+      "name": "fitri",
+      "age": "12",
+      "address": "banyumanik",
+      "phone": "04111",
+      "diagnosis": "sesak",
+      "medicalHistory": "batuk",
+      "appointmentCare": "20-03-2025",
       "status": "menunggu"
     }
   ],
@@ -127,6 +138,46 @@
       "username": "aris",
       "email": "albarbasy2018@gmail.com",
       "password": "12345"
+    },
+    {
+      "id": "8b4f",
+      "username": "hanifah",
+      "email": "albarbasy2018@gmail.com",
+      "password": "hanifah123"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d001",
+      "name": "dr. hanifah",
+      "specialty": "Umum"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a001",
+      "patientId": "2001",
+      "doctorId": "d001",
+      "schedule": "2025-06-24T10:00",
+      "status": "Terjadwal"
+    }
+  ],
+  "medicines": [
+    {
+      "id": "obat001",
+      "name": "Paracetamol",
+      "type": "Tablet",
+      "description": "Obat penurun panas dan pereda nyeri",
+      "stock": 100,
+      "price": 5000
+    },
+    {
+      "id": "obat002",
+      "name": "Salbutamol",
+      "type": "Inhaler",
+      "description": "Obat untuk mengatasi sesak napas",
+      "stock": 50,
+      "price": 25000
     }
   ]
 }

@@ -23,13 +23,10 @@ export default function Dashboard() {
         </div>
         <nav className="mt-6 space-y-4">
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
-            Data Pasien
+            Dashboard
           </a>
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
-            Dokter
-          </a>
-          <a href="#" className="block hover:bg-green-600 p-2 rounded">
-            Janji Temu
+            Pasien
           </a>
         </nav>
       </aside>
