@@ -111,67 +111,21 @@
       "status": "menunggu"
     }
   ],
-  "users": [
-    {
-      "id": "1",
-      "username": "admin",
-      "password": "admin123",
-      "role": "admin",
-      "name": "Administrator"
-    },
-    {
-      "id": "2",
-      "username": "dokter1",
-      "password": "dokter123",
-      "role": "dokter",
-      "name": "Dr. Budi"
-    },
-    {
-      "id": "3",
-      "username": "perawat1",
-      "password": "perawat123",
-      "role": "perawat",
-      "name": "Suster Rina"
-    },
-    {
-      "id": "5168",
-      "username": "aris",
-      "email": "albarbasy2018@gmail.com",
-      "password": "12345"
-    },
-    {
-      "id": "8b4f",
-      "username": "hanifah",
-      "email": "albarbasy2018@gmail.com",
-      "password": "hanifah123"
-    }
-  ],
   "doctors": [
     {
-      "id": "d001",
-      "name": "dr. hanifah",
-      "specialty": "Umum"
-      "schedule": "Senin - Jumat, 09:00 - 15:00"  
+      "id": "464f"
     }
   ],
   "appointments": [
     {
-      "id": "a001",
-      "patientId": "2001",
-      "doctorId": "d001",
-      "schedule": "2025-06-24T10:00",
-      "status": "Terjadwal"
+      "id": null,
+      "patient": "Abdull",
+      "doctor": "dr nisa",
+      "date": "2025-05-06",
+      "time": "15:30"
     }
   ],
   "medicines": [
-    {
-      "id": "obat001",
-      "name": "Paracetamol",
-      "type": "Tablet",
-      "description": "Obat penurun panas dan pereda nyeri",
-      "stock": 100,
-      "price": 5000
-    },
     {
       "id": "obat002",
       "name": "Salbutamol",
@@ -179,6 +133,30 @@
       "description": "Obat untuk mengatasi sesak napas",
       "stock": 50,
       "price": 25000
+    },
+    {
+      "name": "panadol",
+      "type": "paracetamol",
+      "description": "obat untuk menurunkan panas",
+      "stock": 23,
+      "price": 20000,
+      "id": "obat1746263869993"
+    },
+    {
+      "id": "obat1746264572172",
+      "name": "promag",
+      "type": "paracetamol",
+      "description": "obat untuk mag",
+      "stock": 50,
+      "price": 1000
+    },
+    {
+      "id": "obat1746265228430",
+      "name": "temulawak",
+      "type": "herbal",
+      "description": "obat untuk masuk angin",
+      "stock": 20,
+      "price": 20000
     }
   ]
 }

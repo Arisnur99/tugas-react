@@ -5,8 +5,10 @@ import Dashboard from "./Components/Element/Fragmnent/Dashboard";
 import NotFound from "./Components/Element/Fragmnent/NotFound";
 import PatienTable from "./Components/Element/Fragmnent/PatienTable";
 import Manajemen from "./Components/Element/Fragmnent/Manajemen";
-import Tables from "./Components/Element/Fragmnent/Tables";
-import DoctorTable from "./Components/Element/Fragmnent/Docter";
+import Tables from "./Components/Element/Fragmnent/TablesJanji";
+import JadwalDokter from "./Components/Element/Fragmnent/JadwalDokter";
+import ObatTable from "./Components/Element/Fragmnent/Medicine";
+
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
         <Route path="/manajemen" element={<Manajemen />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/patients" element={<PatienTable />} />
-        <Route path="/tables" element={<Tables/>} />
-        <Route path="/docter" element={<DoctorTable/>} />
+        <Route path="/tablesjanji" element={<Tables/>} />
+        <Route path="/docter" element={<JadwalDokter/>} />
+        <Route path="/obat" element={<ObatTable/>} />
+       
       </Routes>
     </Router>
   );

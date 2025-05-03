@@ -51,7 +51,7 @@ const PatienTable = () => {
           menuOpen ? "block" : "hidden"
         } md:block`}
       >
-        <h1 className="text-2xl font-bold mb-8">Puskesmas</h1>
+        <h1 className="text-2xl font-bold mb-8">Puskesmas <br /> Bina Desa</h1>
         <nav className="space-y-3">
           <Link to="/dashboard" className="block hover:text-green-300">
             Data Pasien

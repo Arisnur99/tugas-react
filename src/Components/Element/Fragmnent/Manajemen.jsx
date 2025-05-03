@@ -126,7 +126,9 @@ function Manajemen() {
 
       {/* Sidebar Desktop */}
       <div className="hidden md:block bg-green-700 text-white w-64 h-full p-4 fixed top-0 left-0 z-20">
-        <h2 className="text-2xl font-bold mb-6">Menu</h2>
+        <h2 className="text-2xl font-bold mb-6">
+          Puskesmas <br /> Bina Desa
+        </h2>
         <ul>
           <li className="mb-4">
             <a href="#" className="hover:text-green-300">

@@ -19,7 +19,7 @@ export default function Dashboard() {
           } sm:translate-x-0 sm:relative sm:block`}
       >
         <div className="text-2xl font-bold border-b border-green-600 pb-4">
-          Puskesmas
+          Puskesmas <br /> Bina Desa
         </div>
         <nav className="mt-6 space-y-4">
           <a href="#" className="block hover:bg-green-600 p-2 rounded">
