@@ -22,10 +22,10 @@ export default function Dashboard() {
           Puskesmas <br /> Bina Desa
         </div>
         <nav className="mt-6 space-y-4">
-          <a href="#" className="block hover:bg-green-600 p-2 rounded">
+          <a href="#" className="block hover:bg-green-650 p-2 rounded">
             Dashboard
           </a>
-          <a href="#" className="block hover:bg-green-600 p-2 rounded">
+          <a href="#" className="block hover:bg-green-650 p-2 rounded">
             Pasien
           </a>
         </nav>
@@ -38,7 +38,7 @@ export default function Dashboard() {
         />
       )}
 
-      <main className="flex-1 sm:ml-64 p-4 sm:p-6">
+      <main className="flex-1 ml-0 p-4 sm:p-6 pl-6">
         <button
           className="sm:hidden mb-4 text-green-700"
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -46,7 +46,7 @@ export default function Dashboard() {
           <FaBars size={24} />
         </button>
 
-        <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6 ">
           Dashboard <br /> Puskesmas Bina Desa
         </h1>
 

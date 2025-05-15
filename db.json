@@ -111,37 +111,155 @@
       "status": "menunggu"
     }
   ],
-  "doctors": [
+  "dokter": [
     {
-      "id": "464f"
+      "id": "45f8",
+      "nama": "dr nayla",
+      "spesialis": "paru",
+      "jadwal": "rabu-sabtu"
+    },
+    {
+      "id": "45f4",
+      "nama": "dr fitri",
+      "spesialis": "jiwa",
+      "jadwal": "senin-rabu"
+    },
+    {
+      "id": "a23e",
+      "nama": "dr reza ",
+      "spesialis": "mata",
+      "jadwal": "rabu-kamis"
     }
   ],
   "appointments": [
     {
-      "id": null,
-      "patient": "Abdull",
-      "doctor": "dr nisa",
-      "date": "2025-05-06",
-      "time": "15:30"
+      "id": "441e",
+      "patient": "fahrizal",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-27",
+      "time": "13:00",
+      "status": "Menunggu"
+    },
+    {
+      "id": "18fe",
+      "patient": "fitri",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-25",
+      "time": "17:00",
+      "status": "Menunggu"
+    },
+    {
+      "id": "41e6",
+      "patient": "usman",
+      "doctor": "540d",
+      "spesialis": "jantung",
+      "date": "2025-05-24",
+      "time": "12:00",
+      "status": "Menunggu"
+    },
+    {
+      "id": "0677",
+      "patient": "reza",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-27",
+      "time": "13:00",
+      "status": "Menunggu"
+    },
+    {
+      "id": "9da7",
+      "patient": "riski",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-17",
+      "time": "13:33",
+      "status": "Menunggu"
+    },
+    {
+      "id": "540d",
+      "patient": "alfian",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-22",
+      "time": "09:45",
+      "status": "Menunggu"
+    },
+    {
+      "patient": "altan",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-28",
+      "time": "14:30",
+      "status": "Menunggu",
+      "id": "17a1"
+    },
+    {
+      "id": "0f02",
+      "patient": "raikhan",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-31",
+      "time": "14:30",
+      "status": "Menunggu"
+    },
+    {
+      "patient": "fahri",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-22",
+      "time": "17:00",
+      "status": "Menunggu",
+      "id": "aeef"
+    },
+    {
+      "id": "09ff",
+      "patient": "satrio",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-02",
+      "time": "09:30",
+      "status": "Menunggu"
+    },
+    {
+      "id": "3fc5",
+      "patient": "candra ",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-10",
+      "time": "09:42",
+      "status": "Menunggu"
+    },
+    {
+      "id": "c6c6",
+      "patient": "alif",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-10",
+      "time": "09:52",
+      "status": "Menunggu"
+    },
+    {
+      "id": "5ed0",
+      "patient": "santrio",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-17",
+      "time": "09:55",
+      "status": "Menunggu"
+    },
+    {
+      "id": "5037",
+      "patient": "aziz",
+      "doctor": "c0d5",
+      "spesialis": "jantung",
+      "date": "2025-05-17",
+      "time": "10:00",
+      "status": "Menunggu"
     }
   ],
   "medicines": [
-    {
-      "id": "obat002",
-      "name": "Salbutamol",
-      "type": "Inhaler",
-      "description": "Obat untuk mengatasi sesak napas",
-      "stock": 50,
-      "price": 25000
-    },
-    {
-      "name": "panadol",
-      "type": "paracetamol",
-      "description": "obat untuk menurunkan panas",
-      "stock": 23,
-      "price": 20000,
-      "id": "obat1746263869993"
-    },
     {
       "id": "obat1746264572172",
       "name": "promag",
@@ -156,6 +274,30 @@
       "type": "herbal",
       "description": "obat untuk masuk angin",
       "stock": 20,
+      "price": 20000
+    },
+    {
+      "id": "obat1747288301784",
+      "name": "antangin",
+      "type": "temulawak",
+      "description": "obat masuk angin",
+      "stock": 20,
+      "price": 12000
+    },
+    {
+      "name": "madu",
+      "type": "herbal",
+      "description": "obat supaya semangat",
+      "stock": 35,
+      "price": 30000,
+      "id": "obat1747288645320"
+    },
+    {
+      "id": "obat1747290046010",
+      "name": "obat",
+      "type": "herbal",
+      "description": "menambah semangat",
+      "stock": 50,
       "price": 20000
     }
   ]

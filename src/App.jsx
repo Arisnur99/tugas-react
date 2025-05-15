@@ -7,7 +7,10 @@ import PatienTable from "./Components/Element/Fragmnent/PatienTable";
 import Manajemen from "./Components/Element/Fragmnent/Manajemen";
 import Tables from "./Components/Element/Fragmnent/TablesJanji";
 import JadwalDokter from "./Components/Element/Fragmnent/JadwalDokter";
-import ObatTable from "./Components/Element/Fragmnent/Medicine";
+import ObatTable from "./Components/Element/Fragmnent/Obat";
+import Dokter from "./Components/Element/Fragmnent/AddDokter";
+import TabelDokter from "./Components/Element/Fragmnent/TableDokter";
+import TableObat from "./Components/Element/Fragmnent/TableObat";
 
 
 function App() {
@@ -20,10 +23,14 @@ function App() {
         <Route path="/manajemen" element={<Manajemen />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/patients" element={<PatienTable />} />
-        <Route path="/tablesjanji" element={<Tables/>} />
-        <Route path="/docter" element={<JadwalDokter/>} />
-        <Route path="/obat" element={<ObatTable/>} />
-       
+        <Route path="/janjidokter" element={<JadwalDokter />} />
+        <Route path="/janjidokter/:id" element={<JadwalDokter />} />
+        <Route path="/tablesjanji" element={<Tables />} />
+        <Route path="/obat" element={<ObatTable />} />
+        <Route path="/tableobat" element={<TableObat />} />
+        <Route path="/adddokter" element={<Dokter />} />
+        <Route path="/tabledokter" element={<TabelDokter />} />
+        
       </Routes>
     </Router>
   );
