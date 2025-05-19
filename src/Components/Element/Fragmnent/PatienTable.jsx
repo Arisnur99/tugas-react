@@ -51,17 +51,37 @@ const PatienTable = () => {
           menuOpen ? "block" : "hidden"
         } md:block`}
       >
-        <h1 className="text-2xl font-bold mb-8">Puskesmas <br /> Bina Desa</h1>
+        <h1 className="text-2xl font-bold mb-8">
+          Puskesmas <br /> Bina Desa
+        </h1>
         <nav className="space-y-3">
-          <Link to="/dashboard" className="block hover:text-green-300">
-            Data Pasien
-          </Link>
-          <Link to="/" className="block hover:text-green-300">
-            Dokter
-          </Link>
-          <Link to="/logout" className="block hover:text-green-300">
-            Janji Temu
-          </Link>
+          <ul>
+            <li className="mb-4">
+              <a href="dashboard" className="hover:text-green-300">
+                Dashboard
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="patients" className="hover:text-green-300">
+                Pasien
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="tabledokter" className="hover:text-green-300">
+                Janji Dokter
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="tablesjanji" className="hover:text-green-300">
+                Table Janji
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="tableobat" className="hover:text-green-300">
+                Obat
+              </a>
+            </li>
+          </ul>
         </nav>
       </aside>
 

@@ -68,13 +68,29 @@ const AddDokter = () => {
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">Home</a>
+            <a href="dashboard" className="hover:text-green-300">
+              Dashboard
+            </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">Data Pasien</a>
+            <a href="patients" className="hover:text-green-300">
+              Pasien
+            </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">Laporan</a>
+            <a href="tabledokter" className="hover:text-green-300">
+              Janji Dokter
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tablesjanji" className="hover:text-green-300">
+              Table Janji
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tableobat" className="hover:text-green-300">
+              Obat
+            </a>
           </li>
         </ul>
       </div>

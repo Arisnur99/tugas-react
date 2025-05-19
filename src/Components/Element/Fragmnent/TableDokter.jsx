@@ -43,14 +43,30 @@ const TabelDokter = () => {
       <div className="w-64 bg-green-700 text-white p-5 fixed h-full">
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
-          <li className="mb-4 hover:bg-green-600 px-2 py-1 rounded cursor-pointer">
-            Home
+          <li className="mb-4">
+            <a href="dashboard" className="hover:text-green-300">
+              Dashboard
+            </a>
           </li>
-          <li className="mb-4 hover:bg-green-600 px-2 py-1 rounded cursor-pointer">
-            Data Pasien
+          <li className="mb-4">
+            <a href="patients" className="hover:text-green-300">
+              Pasien
+            </a>
           </li>
-          <li className="mb-4 hover:bg-green-600 px-2 py-1 rounded cursor-pointer">
-            Laporan
+          <li className="mb-4">
+            <a href="tabledokter" className="hover:text-green-300">
+              Janji Dokter
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tablesjanji" className="hover:text-green-300">
+              Table Janji
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tableobat" className="hover:text-green-300">
+              Obat
+            </a>
           </li>
         </ul>
       </div>
@@ -101,7 +117,9 @@ const TabelDokter = () => {
                     <td className="px-4 py-2 text-center space-x-2">
                       <button
                         className="text-blue-600 hover:underline"
-                        onClick={() => navigate("/adddokter", { state: dokter })}
+                        onClick={() =>
+                          navigate("/adddokter", { state: dokter })
+                        }
                       >
                         Edit
                       </button>

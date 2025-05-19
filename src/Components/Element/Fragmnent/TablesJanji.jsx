@@ -61,14 +61,30 @@ function JanjiPasien() {
       <div className="w-64 bg-green-700 text-white p-5">
         <h1 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h1>
         <ul className="space-y-4">
-          <li className="hover:bg-green-650 px-2 py-1 rounded cursor-pointer">
-            Home
+          <li className="mb-4">
+            <a href="dashboard" className="hover:text-green-300">
+              Dashboard
+            </a>
           </li>
-          <li className="hover:bg-green-650 px-2 py-1 rounded cursor-pointer">
-            Data Pasien
+          <li className="mb-4">
+            <a href="patients" className="hover:text-green-300">
+              Pasien
+            </a>
           </li>
-          <li className="hover:bg-green-650 px-2 py-1 rounded cursor-pointer">
-            Laporan
+          <li className="mb-4">
+            <a href="tabledokter" className="hover:text-green-300">
+              Janji Dokter
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tablesjanji" className="hover:text-green-300">
+              Table Janji
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tableobat" className="hover:text-green-300">
+              Obat
+            </a>
           </li>
         </ul>
       </div>
@@ -76,14 +92,16 @@ function JanjiPasien() {
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Header + Search + Button */}
-              {/* Header */}
-              <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-green-700">Janji Temu Pasien</h2>
+        {/* Header */}
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-xl font-bold text-green-700">
+            Janji Temu Pasien
+          </h2>
           <button
             onClick={() => navigate("/janjidokter")}
             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           >
-             + Tambah Janji
+            + Tambah Janji
           </button>
         </div>
 
@@ -97,7 +115,6 @@ function JanjiPasien() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-
 
         {/* Tabel Janji Temu */}
         <div className="overflow-x-auto rounded-xl shadow-md bg-white">

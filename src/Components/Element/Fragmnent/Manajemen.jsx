@@ -131,18 +131,28 @@ function Manajemen() {
         </h2>
         <ul>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">
-              Home
+            <a href="dashboard" className="hover:text-green-300">
+              Dashboard
             </a>
           </li>
           <li className="mb-4">
-            <a href="datapasien" className="hover:text-green-300">
-              Data Pasien
+            <a href="patients" className="hover:text-green-300">
+              Pasien
             </a>
           </li>
           <li className="mb-4">
-            <a href="#" className="hover:text-green-300">
-              Laporan
+            <a href="tabledokter" className="hover:text-green-300">
+              Janji Dokter
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tablesjanji" className="hover:text-green-300">
+              Table Janji
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tableobat" className="hover:text-green-300">
+              Obat
             </a>
           </li>
         </ul>
@@ -162,18 +172,28 @@ function Manajemen() {
           </div>
           <ul>
             <li className="mb-4">
-              <a href="#" className="hover:text-green-300">
-                Home
+              <a href="dashboard" className="hover:text-green-300">
+                Dashboard
               </a>
             </li>
             <li className="mb-4">
-              <a href="#" className="hover:text-green-300">
-                Data Pasien
+              <a href="patients" className="hover:text-green-300">
+                Pasien
               </a>
             </li>
             <li className="mb-4">
-              <a href="#" className="hover:text-green-300">
-                Laporan
+              <a href="tabledokter" className="hover:text-green-300">
+                Janji Dokter
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="tablesjanji" className="hover:text-green-300">
+                Table Janji
+              </a>
+            </li>
+            <li className="mb-4">
+              <a href="tableobat" className="hover:text-green-300">
+                Obat
               </a>
             </li>
           </ul>

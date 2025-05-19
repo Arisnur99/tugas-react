@@ -21,12 +21,27 @@ export default function Dashboard() {
         <div className="text-2xl font-bold border-b border-green-600 pb-4">
           Puskesmas <br /> Bina Desa
         </div>
-        <nav className="mt-6 space-y-4">
-          <a href="#" className="block hover:bg-green-650 p-2 rounded">
+        <nav className="mt-4">
+          <a href="" className="block hover:bg-green-650 p-2 rounded">
             Dashboard
           </a>
-          <a href="#" className="block hover:bg-green-650 p-2 rounded">
+          <a href="Patients" className="block hover:bg-green-650 p-2 rounded">
             Pasien
+          </a>
+          <a
+            href="tabledokter"
+            className="block hover:bg-green-650 p-2 rounded"
+          >
+            Janji Dokter
+          </a>
+          <a
+            href="tablesjanji"
+            className="block hover:bg-green-650 p-2 rounded"
+          >
+            Table Janji
+          </a>
+          <a href="tableobat" className="block hover:bg-green-650 p-2 rounded">
+            Obat
           </a>
         </nav>
       </aside>
