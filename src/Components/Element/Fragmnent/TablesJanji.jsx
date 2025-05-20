@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const statusColor = {
   Terkonfirmasi: "text-green-600 bg-green-100",
@@ -98,6 +99,12 @@ function JanjiPasien() {
               Obat
             </a>
           </li>
+          console.log("fetchAppointments function called");
+          console.log("useEffect hook called"); console.log("handleDelete
+          function called"); console.log("handleEdit function called");
+          console.log("filteredAppointments:", filteredAppointments);
+          console.log("appointments:", appointments); console.log("searchTerm:",
+          searchTerm);
         </ul>
       </div>
 
@@ -164,15 +171,15 @@ function JanjiPasien() {
                   <td className="px-4 py-3 space-x-2">
                     <button
                       onClick={() => handleEdit(appt.id)}
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-600 hover:text-blue-800"
                     >
-                      Edit
+                      <FaEdit />
                     </button>
                     <button
                       onClick={() => handleDelete(appt.id)}
-                      className="text-red-600 hover:underline"
+                      className="text-red-600 hover:text-red-800"
                     >
-                      Hapus
+                      <FaTrash />
                     </button>
                   </td>
                 </tr>

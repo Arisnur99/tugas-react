@@ -56,31 +56,46 @@ const PatienTable = () => {
         </h1>
         <nav className="mb-4">
           <ul>
-          <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
-              Dashboard
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
-              Pasien
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
-              Janji Dokter
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
-              Table Janji
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
-              Obat
-            </a>
-          </li>
+            <li className="mb-4">
+              <a
+                href="dashboard"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="patients"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Pasien
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tabledokter"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Janji Dokter
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tablesjanji"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Table Janji
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tableobat"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Obat
+              </a>
+            </li>
           </ul>
         </nav>
       </aside>
@@ -150,7 +165,7 @@ const PatienTable = () => {
                       {/* Tombol edit bisa diaktifkan kembali jika mau bawa ke manajemen */}
                       <Link
                         to={`/manajemen?id=${patient.id}`}
-                        className="text-yellow-500 hover:text-yellow-700"
+                        className="text-blue-600 hover:text-blue-800"
                       >
                         <FaEdit />
                       </Link>

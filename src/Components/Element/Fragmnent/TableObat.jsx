@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { FaEdit, FaTrash } from "react-icons/fa";
 const TableObatPage = () => {
   const [medicines, setMedicines] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -145,14 +145,14 @@ const TableObatPage = () => {
                         className="text-blue-600 hover:text-blue-800"
                         title="Edit"
                       >
-                        Edit
+                       <FaEdit />
                       </button>
                       <button
                         onClick={() => handleDelete(obat.id)}
                         className="text-red-600 hover:text-red-800"
                         title="Hapus"
                       >
-                        Hapus
+                        <FaTrash />
                       </button>
                     </td>
                   </tr>

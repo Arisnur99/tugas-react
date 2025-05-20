@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { FaEdit, FaTrash } from "react-icons/fa";
 const TabelDokter = () => {
   const [dokterList, setDokterList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -116,18 +116,18 @@ const TabelDokter = () => {
                     <td className="px-4 py-2">{dokter.jadwal}</td>
                     <td className="px-4 py-2 text-center space-x-2">
                       <button
-                        className="text-blue-600 hover:underline"
+                        className="text-blue-600 hover:text-blue-800"
                         onClick={() =>
                           navigate("/adddokter", { state: dokter })
                         }
                       >
-                        Edit
+                       <FaEdit />
                       </button>
                       <button
-                        className="text-red-600 hover:underline"
+                        className="text-red-600 hover:text-red-800"
                         onClick={() => handleDelete(dokter.id)}
                       >
-                        Hapus
+                         <FaTrash />
                       </button>
                     </td>
                   </tr>
