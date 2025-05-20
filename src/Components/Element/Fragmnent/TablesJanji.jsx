@@ -99,12 +99,6 @@ function JanjiPasien() {
               Obat
             </a>
           </li>
-          console.log("fetchAppointments function called");
-          console.log("useEffect hook called"); console.log("handleDelete
-          function called"); console.log("handleEdit function called");
-          console.log("filteredAppointments:", filteredAppointments);
-          console.log("appointments:", appointments); console.log("searchTerm:",
-          searchTerm);
         </ul>
       </div>
 
