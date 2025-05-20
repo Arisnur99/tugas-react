@@ -54,33 +54,33 @@ const PatienTable = () => {
         <h1 className="text-2xl font-bold mb-8">
           Puskesmas <br /> Bina Desa
         </h1>
-        <nav className="space-y-3">
+        <nav className="mb-4">
           <ul>
-            <li className="mb-4">
-              <a href="dashboard" className="hover:text-green-300">
-                Dashboard
-              </a>
-            </li>
-            <li className="mb-4">
-              <a href="patients" className="hover:text-green-300">
-                Pasien
-              </a>
-            </li>
-            <li className="mb-4">
-              <a href="tabledokter" className="hover:text-green-300">
-                Janji Dokter
-              </a>
-            </li>
-            <li className="mb-4">
-              <a href="tablesjanji" className="hover:text-green-300">
-                Table Janji
-              </a>
-            </li>
-            <li className="mb-4">
-              <a href="tableobat" className="hover:text-green-300">
-                Obat
-              </a>
-            </li>
+          <li className="mb-4">
+            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
+              Dashboard
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
+              Pasien
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
+              Janji Dokter
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
+              Table Janji
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
+              Obat
+            </a>
+          </li>
           </ul>
         </nav>
       </aside>

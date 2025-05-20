@@ -31,8 +31,8 @@ const AddDokter = () => {
     }
 
     const url = editing
-      ? `http://localhost:3001/dokter/${form.id}`
-      : "http://localhost:3001/dokter";
+      ? `http://localhost:3001/doctors/${form.id}`
+      : "http://localhost:3001/doctors";
     const method = editing ? "PUT" : "POST";
 
     const dataToSend = editing
@@ -68,27 +68,27 @@ const AddDokter = () => {
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
           <li className="mb-4">
-            <a href="dashboard" className="hover:text-green-300">
+            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
               Dashboard
             </a>
           </li>
           <li className="mb-4">
-            <a href="patients" className="hover:text-green-300">
+            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
               Pasien
             </a>
           </li>
           <li className="mb-4">
-            <a href="tabledokter" className="hover:text-green-300">
+            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
               Janji Dokter
             </a>
           </li>
           <li className="mb-4">
-            <a href="tablesjanji" className="hover:text-green-300">
+            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
               Table Janji
             </a>
           </li>
           <li className="mb-4">
-            <a href="tableobat" className="hover:text-green-300">
+            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
               Obat
             </a>
           </li>

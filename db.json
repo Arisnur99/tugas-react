@@ -111,7 +111,7 @@
       "status": "menunggu"
     }
   ],
-  "dokter": [
+  "doctors": [
     {
       "id": "45f8",
       "nama": "dr nayla",
@@ -242,7 +242,7 @@
     },
     {
       "id": "5ed0",
-      "patient": "santrio",
+      "patient": "satrio",
       "doctor": "c0d5",
       "spesialis": "jantung",
       "date": "2025-05-17",
@@ -299,6 +299,6 @@
       "description": "menambah semangat",
       "stock": 50,
       "price": 20000
-    }
+    }    
   ]
 }
