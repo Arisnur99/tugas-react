@@ -60,8 +60,11 @@ const TableObatPage = () => {
       <aside className="w-64 bg-green-700 text-white p-4 hidden md:block">
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
-        <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
+          <li className="mb-4">
+            <a
+              href="dashboard"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Dashboard
             </a>
           </li>
@@ -71,17 +74,26 @@ const TableObatPage = () => {
             </a>
           </li>
           <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
+            <a
+              href="tabledokter"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Janji Dokter
             </a>
           </li>
           <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
+            <a
+              href="tablesjanji"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Table Janji
             </a>
           </li>
           <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
+            <a
+              href="tableobat"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Obat
             </a>
           </li>
@@ -145,7 +157,7 @@ const TableObatPage = () => {
                         className="text-blue-600 hover:text-blue-800"
                         title="Edit"
                       >
-                       <FaEdit />
+                        <FaEdit />
                       </button>
                       <button
                         onClick={() => handleDelete(obat.id)}

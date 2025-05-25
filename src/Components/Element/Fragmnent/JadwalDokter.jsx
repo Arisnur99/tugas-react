@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const JanjiTemu = () => {
   const [appointments, setAppointments] = useState([]);
+  const [doctors, setDoctors] = useState([]);
   const [form, setForm] = useState({
     patient: "",
     doctor: "",
@@ -20,18 +21,34 @@ const JanjiTemu = () => {
     setAppointments(data);
   };
 
+  const fetchDoctors = async () => {
+    const res = await fetch("http://localhost:3001/doctors");
+    const data = await res.json();
+    console.log("DATA DOKTER:", data);
+    setDoctors(data);
+  };
+
   const { id } = useParams();
   const isEditMode = !!id;
   const navigate = useNavigate();
+  useEffect(() => {
+    fetchDoctors();
+    fetchAppointments();
+  }, []);
 
   useEffect(() => {
-    fetchAppointments();
-    if (isEditMode) {
-      fetch(`http://localhost:3001/appointments/${id}`)
-        .then((res) => res.json())
-        .then((data) => setForm(data));
+    if (form.doctor && doctors.length > 0) {
+      const selectedDoctor = doctors.find(
+        (d) => d.id === form.doctor // bandingkan sebagai string
+      );
+      if (selectedDoctor && form.spesialis !== selectedDoctor.spesialis) {
+        setForm((prev) => ({
+          ...prev,
+          spesialis: selectedDoctor.spesialis,
+        }));
+      }
     }
-  }, [id]);
+  }, [form.doctor, doctors]);
 
   const handleSubmit = async () => {
     const { patient, doctor, spesialis, date, time, status } = form;
@@ -56,14 +73,10 @@ const JanjiTemu = () => {
         "Sukses",
         `Janji berhasil ${isEditMode ? "diperbarui" : "ditambahkan"}`,
         "success"
-      ).then(() => {
-        // Arahkan setelah alert ditutup
-        navigate("/tablesjanji");
-      });
+      ).then(() => navigate("/tablesjanji"));
 
       fetchAppointments();
 
-      // Reset form hanya saat tambah (POST)
       if (!isEditMode) {
         setForm({
           patient: "",
@@ -79,7 +92,6 @@ const JanjiTemu = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
       <div className="hidden md:block bg-green-700 text-white w-64 p-4 fixed h-full">
         <h2 className="text-2xl font-bold mb-6">
           Puskesmas
@@ -127,7 +139,6 @@ const JanjiTemu = () => {
         </ul>
       </div>
 
-      {/* Sidebar Mobile */}
       {sidebarOpen && (
         <>
           <div
@@ -145,27 +156,27 @@ const JanjiTemu = () => {
             </div>
             <ul>
               <li className="mb-4">
-                <a href="/datapasien" className="hover:text-green-300">
+                <a href="dashboard" className="hover:text-green-300">
                   Dashboard
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/jadwaldokter" className="hover:text-green-300">
+                <a href="patients" className="hover:text-green-300">
                   Pasien
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/janjitemu" className="hover:text-green-300">
+                <a href="tabledokter" className="hover:text-green-300">
                   Janji Dokter
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/janjitemu" className="hover:text-green-300">
+                <a href="tablesjanji" className="hover:text-green-300">
                   Table Janji
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/janjitemu" className="hover:text-green-300">
+                <a href="tableobat" className="hover:text-green-300">
                   Obat
                 </a>
               </li>
@@ -174,7 +185,6 @@ const JanjiTemu = () => {
         </>
       )}
 
-      {/* Main Content */}
       <div className="flex-1 p-4 md:ml-64">
         <button
           className="text-2xl text-green-700 mb-4 md:hidden"
@@ -185,10 +195,9 @@ const JanjiTemu = () => {
 
         <div className="max-w-6xl mx-auto bg-white p-4 md:p-6 rounded shadow">
           <h2 className="text-lg md:text-xl font-bold text-green-700 mb-4">
-            Tambah Janji Temu Puskesmas Bina Desa
+            {isEditMode ? "Perbarui" : "Tambah"} Janji Temu Puskesmas Bina Desa
           </h2>
 
-          {/* Form Tambah Janji Temu */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             <input
               type="text"
@@ -197,20 +206,41 @@ const JanjiTemu = () => {
               value={form.patient}
               onChange={(e) => setForm({ ...form, patient: e.target.value })}
             />
-            <input
-              type="text"
-              placeholder="Id Dokter"
+
+            <select
               className="border px-3 py-2 rounded"
               value={form.doctor}
-              onChange={(e) => setForm({ ...form, doctor: e.target.value })}
-            />
+              onChange={(e) => {
+                const selectedDoctorId = e.target.value;
+                const selectedDoctor = doctors.find(
+                  (d) => d.id === selectedDoctorId
+                );
+
+                setForm((prev) => ({
+                  ...prev,
+                  doctor: selectedDoctorId,
+                  spesialis: selectedDoctor?.spesialis || "",
+                }));
+              }}
+            >
+              <option value="">Pilih Dokter</option>
+              {doctors.map((dokter) => (
+                <option key={dokter.id} value={dokter.id}>
+                  {dokter.nama} - ID: {dokter.id} (Spesialis {dokter.spesialis})
+                </option>
+              ))}
+              <strong>ID Dokter:</strong> {form.doctor}
+            </select>
+
             <input
               type="text"
               placeholder="Spesialis"
               className="border px-3 py-2 rounded"
               value={form.spesialis}
               onChange={(e) => setForm({ ...form, spesialis: e.target.value })}
+              readOnly
             />
+
             <input
               type="date"
               className="border px-3 py-2 rounded"
@@ -235,23 +265,12 @@ const JanjiTemu = () => {
             </select>
           </div>
 
-          {!isEditMode && (
-            <button
-              onClick={handleSubmit}
-              className="bg-green-600 text-white  px-4 py-2 rounded mb-6"
-            >
-              Tambah Janji
-            </button>
-          )}
-
-          {isEditMode && (
-            <button
-              onClick={handleSubmit}
-              className="bg-green-600 text-white  px-4 py-2 rounded mb-6"
-            >
-              Perbarui Janji
-            </button>
-          )}
+          <button
+            onClick={handleSubmit}
+            className="bg-green-600 text-white px-4 py-2 rounded mb-6"
+          >
+            {isEditMode ? "Perbarui Janji" : "Tambah Janji"}
+          </button>
         </div>
       </div>
     </div>

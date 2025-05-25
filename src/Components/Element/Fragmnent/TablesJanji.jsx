@@ -111,7 +111,7 @@ function JanjiPasien() {
             Janji Temu Pasien
           </h2>
           <button
-            onClick={() => navigate("/janjidokter")}
+            onClick={() => navigate("/dokter")}
             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           >
             + Tambah Janji

@@ -23,8 +23,8 @@ function App() {
         <Route path="/manajemen" element={<Manajemen />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/patients" element={<PatienTable />} />
-        <Route path="/janjidokter" element={<JadwalDokter />} />
-        <Route path="/janjidokter/:id" element={<JadwalDokter />} />
+        <Route path="/dokter" element={<JadwalDokter />} />
+        <Route path="/dokter/:id" element={<JadwalDokter />} />
         <Route path="/tablesjanji" element={<Tables />} />
         <Route path="/obat" element={<ObatTable />} />
         <Route path="/tableobat" element={<TableObat />} />
