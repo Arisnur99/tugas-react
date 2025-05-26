@@ -55,7 +55,18 @@ function JanjiPasien() {
       appt.patient &&
       appt.patient.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const [doctors, setDoctors] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:3001/doctors")
+      .then((res) => res.json())
+      .then((data) => setDoctors(data));
+  }, []);
+  const getDoctorNameById = (id) => {
+    const doctor = doctors.find((d) => d.id === id);
+    return doctor ? doctor.nama : "-";
+  };
+  
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -149,7 +160,8 @@ function JanjiPasien() {
                 <tr key={appt.id} className="hover:bg-gray-50">
                   <td className="px-4 py-3">{i + 1}</td>
                   <td className="px-4 py-3">{appt.patient}</td>
-                  <td className="px-4 py-3">{appt.doctor}</td>
+                  <td className="px-4 py-3">{getDoctorNameById(appt.doctor)}</td>
+
                   <td className="px-4 py-3">{appt.spesialis}</td>
                   <td className="px-4 py-3">{appt.date}</td>
                   <td className="px-4 py-3">{appt.time}</td>

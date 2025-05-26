@@ -30,7 +30,6 @@ function App() {
         <Route path="/tableobat" element={<TableObat />} />
         <Route path="/adddokter" element={<Dokter />} />
         <Route path="/tabledokter" element={<TabelDokter />} />
-        
       </Routes>
     </Router>
   );

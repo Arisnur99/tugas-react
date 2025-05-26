@@ -129,6 +129,24 @@
       "nama": "dr reza ",
       "spesialis": "mata",
       "jadwal": "rabu-kamis"
+    },
+    {
+      "id": "8aad",
+      "nama": "dr budi",
+      "spesialis": "mata",
+      "jadwal": "jumat-sabtu"
+    },
+    {
+      "id": "dd47",
+      "nama": "dr fauzi",
+      "spesialis": "jiwa",
+      "jadwal": "senin-rabu"
+    },
+    {
+      "id": "e449",
+      "nama": "dr andi",
+      "spesialis": "ortopedi",
+      "jadwal": "rabu-jumat"
     }
   ],
   "appointments": [
