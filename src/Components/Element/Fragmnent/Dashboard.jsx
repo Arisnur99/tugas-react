@@ -24,56 +24,61 @@ export default function Dashboard() {
 
   const fetchCounts = async () => {
     try {
-      const [patientsRes, doctorsRes, appointmentsRes, medicinesRes] = await Promise.all([
-        fetch("http://localhost:3001/patients"),
-        fetch("http://localhost:3001/doctors"),
-        fetch("http://localhost:3001/appointments"),
-        fetch("http://localhost:3001/medicines"),
-      ]);
-  
+      const [patientsRes, doctorsRes, appointmentsRes, medicinesRes] =
+        await Promise.all([
+          fetch("http://localhost:3001/patients"),
+          fetch("http://localhost:3001/doctors"),
+          fetch("http://localhost:3001/appointments"),
+          fetch("http://localhost:3001/medicines"),
+        ]);
+
       const [patients, doctors, appointments, medicines] = await Promise.all([
         patientsRes.json(),
         doctorsRes.json(),
         appointmentsRes.json(),
         medicinesRes.json(),
       ]);
-  
+
       setCounts({
         doctors: doctors.length,
         patients: patients.length,
         appointments: appointments.length,
-        visits: appointments.length, // pakai appointments jika tidak ada tabel visits
+        visits: appointments.length,
         medicines: medicines.length,
       });
     } catch (error) {
       console.error("Gagal mengambil data:", error);
     }
   };
-  
-  
 
   return (
     <div className="min-h-screen flex bg-gray-100 relative">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 bg-green-700 text-white w-64 p-6 z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 bg-green-700 text-white w-64 p-4 z-50 transform transition-transform duration-300 ease-in-out text-base ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } sm:translate-x-0 sm:relative sm:block`}
+        } sm:translate-x-0 sm:relative sm:block`}h-
       >
-        <div className="text-2xl font-bold border-b border-green-600 pb-4">
+        <div className="text-2xl font-bold border-green-600 pb-4">
           Puskesmas <br /> Bina Desa
         </div>
-        <nav className="mb-4">
+        <nav className="mt-4 space-y-4">
           <a href="" className="block hover:bg-green-600 p-2 rounded">
             Dashboard
           </a>
           <a href="patients" className="block hover:bg-green-600 p-2 rounded">
             Pasien
           </a>
-          <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
+          <a
+            href="tabledokter"
+            className="block hover:bg-green-600 p-2 rounded"
+          >
             Janji Dokter
           </a>
-          <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
+          <a
+            href="tablesjanji"
+            className="block hover:bg-green-600 p-2 rounded"
+          >
             Table Janji
           </a>
           <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
@@ -99,9 +104,14 @@ export default function Dashboard() {
           <FaBars size={24} />
         </button>
 
-        <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-6">
-          Dashboard <br /> Puskesmas Bina Desa
-        </h1>
+        <div className="mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-green-700">
+            Dashboard <br /> Puskesmas Bina Desa
+          </h1>
+          <p className="text-sm font-normal text-green-600">
+            Kesehatan Anda adalah prioritas Kami
+          </p>
+        </div>
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

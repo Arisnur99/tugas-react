@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 const ObatPage = () => {
   const navigate = useNavigate();
@@ -86,56 +87,79 @@ const ObatPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
-      <div
-        className={`bg-green-700 text-white fixed inset-0 z-50 md:relative md:inset-auto md:z-auto md:w-64 p-4 ${
-          sidebarOpen ? "block" : "hidden"
-        } md:block`}
+      {/* Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
+      <aside
+        className={`fixed inset-y-0 left-0 w-64 bg-green-700 text-white p-4 z-50 transform transition-transform duration-300 ease-in-out
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:z-auto`}
       >
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
-        <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
+          <li className="mb-4">
+            <Link
+              to="/dashboard"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
               Dashboard
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="/patients"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
               Pasien
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="/tabledokter"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
               Janji Dokter
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="/tablesjanji"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
               Table Janji
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="/tableobat"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
               Obat
-            </a>
+            </Link>
           </li>
         </ul>
-        <button
-          className="md:hidden bg-green-600 mt-4 px-4 py-2 rounded"
-          onClick={() => setSidebarOpen(false)}
-        >
-          Tutup Menu
-        </button>
-      </div>
+      </aside>
 
       {/* Main Content */}
-      <div className="flex-1 p-4 md:ml-0">
+      <main className="flex-1 p-4 md:p-6">
+        {/* Hamburger Menu Button */}
         <button
-          className="text-lg text-green-700 mb-4 md:hidden"
+          className="md:hidden text-green-700 mb-4"
           onClick={() => setSidebarOpen(true)}
+          aria-label="Buka Menu Sidebar"
         >
-          ☰ Buka Menu
+          <FaBars size={24} />
         </button>
 
         <div className="max-w-7xl mx-auto bg-white p-6 rounded shadow">
@@ -211,7 +235,7 @@ const ObatPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

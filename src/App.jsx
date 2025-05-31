@@ -28,7 +28,7 @@ function App() {
         <Route path="/tablesjanji" element={<Tables />} />
         <Route path="/obat" element={<ObatTable />} />
         <Route path="/tableobat" element={<TableObat />} />
-        <Route path="/adddokter" element={<Dokter />} />
+        <Route path="/addokter" element={<Dokter />} />
         <Route path="/tabledokter" element={<TabelDokter />} />
       </Routes>
     </Router>

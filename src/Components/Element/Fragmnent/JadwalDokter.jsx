@@ -24,13 +24,13 @@ const JanjiTemu = () => {
   const fetchDoctors = async () => {
     const res = await fetch("http://localhost:3001/doctors");
     const data = await res.json();
-    console.log("DATA DOKTER:", data);
     setDoctors(data);
   };
 
   const { id } = useParams();
   const isEditMode = !!id;
   const navigate = useNavigate();
+
   useEffect(() => {
     fetchDoctors();
     fetchAppointments();
@@ -38,9 +38,7 @@ const JanjiTemu = () => {
 
   useEffect(() => {
     if (form.doctor && doctors.length > 0) {
-      const selectedDoctor = doctors.find(
-        (d) => d.id === form.doctor // bandingkan sebagai string
-      );
+      const selectedDoctor = doctors.find((d) => d.id === form.doctor);
       if (selectedDoctor && form.spesialis !== selectedDoctor.spesialis) {
         setForm((prev) => ({
           ...prev,
@@ -92,6 +90,7 @@ const JanjiTemu = () => {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar desktop */}
       <div className="hidden md:block bg-green-700 text-white w-64 p-4 fixed h-full">
         <h2 className="text-2xl font-bold mb-6">
           Puskesmas
@@ -139,58 +138,84 @@ const JanjiTemu = () => {
         </ul>
       </div>
 
-      {sidebarOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-10"
-            onClick={() => setSidebarOpen(false)}
-          ></div>
-          <div className="fixed bg-green-700 text-white w-64 h-full p-4 z-20 md:hidden">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">
-                Puskesmas
-                <br />
-                Bina Desa
-              </h2>
-              <button onClick={() => setSidebarOpen(false)}>❌</button>
-            </div>
-            <ul>
-              <li className="mb-4">
-                <a href="dashboard" className="hover:text-green-300">
-                  Dashboard
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="patients" className="hover:text-green-300">
-                  Pasien
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="tabledokter" className="hover:text-green-300">
-                  Janji Dokter
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="tablesjanji" className="hover:text-green-300">
-                  Table Janji
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="tableobat" className="hover:text-green-300">
-                  Obat
-                </a>
-              </li>
-            </ul>
-          </div>
-        </>
-      )}
+      {/* Sidebar mobile + overlay */}
+      <>
+        {/* Overlay */}
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-50 z-10 transition-opacity duration-300 ${
+            sidebarOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+          onClick={() => setSidebarOpen(false)}
+        ></div>
 
+        {/* Sidebar Mobile */}
+        {/* Sidebar Mobile */}
+        <div
+          className={`fixed top-0 left-0 bg-green-700 text-white w-64 h-full p-4 z-20 transform transition-transform duration-300 md:hidden ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold">
+              Puskesmas
+              <br />
+              Bina Desa
+            </h2>
+           
+          </div>
+          <ul>
+            <li className="mb-4">
+              <a
+                href="dashboard"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="patients"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Pasien
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tabledokter"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Janji Dokter
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tablesjanji"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Table Janji
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="tableobat"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Obat
+              </a>
+            </li>
+          </ul>
+        </div>
+      </>
+
+      {/* Main Content */}
       <div className="flex-1 p-4 md:ml-64">
+        {/* Toggle button mobile */}
         <button
           className="text-2xl text-green-700 mb-4 md:hidden"
           onClick={() => setSidebarOpen(true)}
         >
-          ☰ Menu
+          ☰
         </button>
 
         <div className="max-w-6xl mx-auto bg-white p-4 md:p-6 rounded shadow">
@@ -215,7 +240,6 @@ const JanjiTemu = () => {
                 const selectedDoctor = doctors.find(
                   (d) => d.id === selectedDoctorId
                 );
-
                 setForm((prev) => ({
                   ...prev,
                   doctor: selectedDoctorId,
@@ -229,7 +253,6 @@ const JanjiTemu = () => {
                   {dokter.nama} - ID: {dokter.id} (Spesialis {dokter.spesialis})
                 </option>
               ))}
-              <strong>ID Dokter:</strong> {form.doctor}
             </select>
 
             <input
@@ -237,7 +260,6 @@ const JanjiTemu = () => {
               placeholder="Spesialis"
               className="border px-3 py-2 rounded"
               value={form.spesialis}
-              onChange={(e) => setForm({ ...form, spesialis: e.target.value })}
               readOnly
             />
 

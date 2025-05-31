@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const AddDokter = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const [form, setForm] = useState({
     nama: "",
@@ -14,7 +15,6 @@ const AddDokter = () => {
 
   const [editing, setEditing] = useState(false);
 
-  // Prefill jika ada data dari route state (untuk edit)
   useEffect(() => {
     if (location.state) {
       setForm(location.state);
@@ -24,7 +24,6 @@ const AddDokter = () => {
 
   const handleSubmit = async () => {
     const { nama, spesialis, jadwal } = form;
-
     if (!nama || !spesialis || !jadwal) {
       Swal.fire("Gagal", "Semua kolom wajib diisi!", "warning");
       return;
@@ -62,41 +61,55 @@ const AddDokter = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <div className="w-64 bg-green-700 text-white p-4 fixed h-full">
-        <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
-        <ul>
-          <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
-              Dashboard
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
-              Pasien
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
-              Janji Dokter
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
-              Table Janji
-            </a>
-          </li>
-          <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
-              Obat
-            </a>
-          </li>
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-sm">
+      {/* Overlay Mobile */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
+      {/* Sidebar Desktop */}
+      <div className="hidden md:block bg-green-700 text-white w-64 h-full p-4 fixed top-0 left-0 z-50 text-base">
+        <h2 className="text-2xl font-bold mb-6 leading-tight">Puskesmas <br /> Bina Desa</h2>
+        <ul className="space-y-4">
+          <li><a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a></li>
+          <li><a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a></li>
+          <li><a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a></li>
+          <li><a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a></li>
+          <li><a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a></li>
         </ul>
       </div>
 
+      {/* Sidebar Mobile */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-green-700 text-white z-50 transform ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 md:hidden`}
+      >
+        <div className="p-4">
+          <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
+          <ul className="space-y-4">
+            <li><a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a></li>
+            <li><a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a></li>
+            <li><a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a></li>
+            <li><a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a></li>
+            <li><a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a></li>
+          </ul>
+        </div>
+      </div>
+
       {/* Main Content */}
-      <div className="ml-64 flex-1 p-6 bg-gray-100">
+      <div className="flex-1 p-4 md:ml-64">
+        {/* Toggle Button Mobile */}
+        <button
+          className="text-2xl text-green-700 mb-4 md:hidden"
+          onClick={() => setSidebarOpen(true)}
+        >
+          ☰ 
+        </button>
+
         <div className="bg-white p-6 rounded shadow">
           <h2 className="text-xl font-bold mb-4 text-green-700">
             {editing ? "Edit Dokter" : "Form Dokter"}
@@ -126,7 +139,7 @@ const AddDokter = () => {
             />
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <button
               onClick={handleSubmit}
               className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"

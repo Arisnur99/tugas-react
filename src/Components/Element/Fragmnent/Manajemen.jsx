@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
-// import { FaEdit, FaTrash } from "react-icons/fa";
-// import PatienTable from "./PatienTable";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function Manajemen() {
   const [Patientable, setPatientTable] = useState([]);
-
-  const navigate = useNavigate();
-
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -22,6 +16,8 @@ function Manajemen() {
   });
   const [editId, setEditId] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const fetchPatients = async () => {
     const res = await fetch("http://localhost:3001/patients");
@@ -88,7 +84,7 @@ function Manajemen() {
       setEditId(null);
 
       setTimeout(() => {
-        navigate("/patients"); // sesuaikan dengan rute daftar pasien
+        navigate("/patients");
       }, 1000);
     } else {
       Swal.fire({
@@ -98,8 +94,6 @@ function Manajemen() {
       });
     }
   };
-
-  const location = useLocation();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -116,98 +110,72 @@ function Manajemen() {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
-      {/* Overlay for Mobile Sidebar */}
+      {/* Overlay Mobile */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-10"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
 
       {/* Sidebar Desktop */}
       <div className="hidden md:block bg-green-700 text-white w-64 h-full p-4 fixed top-0 left-0 z-20">
-        <h2 className="text-2xl font-bold mb-6">
-          Puskesmas <br /> Bina Desa
-        </h2>
+        <h2 className="text-2xl font-bold mb-6">Puskesmas <br /> Bina Desa</h2>
         <ul>
-        <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">
-              Dashboard
-            </a>
+          <li className="mb-4">
+            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a>
           </li>
           <li className="mb-4">
-            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
-              Pasien
-            </a>
+            <a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a>
           </li>
           <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">
-              Janji Dokter
-            </a>
+            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a>
           </li>
           <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
-              Table Janji
-            </a>
+            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a>
           </li>
           <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
-              Obat
-            </a>
+            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
           </li>
         </ul>
       </div>
 
       {/* Sidebar Mobile */}
-      {sidebarOpen && (
-        <div className="fixed bg-green-700 text-white w-64 h-full p-4 top-0 left-0 z-30 md:hidden">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Menu</h2>
-            <button
-              className="text-white text-xl"
-              onClick={() => setSidebarOpen(false)}
-            >
-              ❌
-            </button>
-          </div>
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-green-700 text-white z-50 transform ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 md:hidden`}
+      >
+        <div className="p-4">
+          <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
           <ul>
             <li className="mb-4">
-              <a href="dashboard" className="hover:text-green-300">
-                Dashboard
-              </a>
+              <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a>
             </li>
             <li className="mb-4">
-              <a href="patients" className="hover:text-green-300">
-                Pasien
-              </a>
+              <a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a>
             </li>
             <li className="mb-4">
-              <a href="tabledokter" className="hover:text-green-300">
-                Janji Dokter
-              </a>
+              <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a>
             </li>
             <li className="mb-4">
-              <a href="tablesjanji" className="hover:text-green-300">
-                Table Janji
-              </a>
+              <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a>
             </li>
             <li className="mb-4">
-              <a href="tableobat" className="hover:text-green-300">
-                Obat
-              </a>
+              <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
             </li>
           </ul>
         </div>
-      )}
+      </div>
 
       {/* Main Content */}
       <div className="flex-1 p-4 md:ml-64">
-        {/* Menu Button Mobile */}
+        {/* Toggle Button Mobile */}
         <button
           className="text-2xl text-green-700 mb-4 md:hidden"
           onClick={() => setSidebarOpen(true)}
         >
-          ☰ Menu
+          ☰ 
         </button>
 
         <div className="bg-white p-4 rounded shadow">
@@ -215,7 +183,7 @@ function Manajemen() {
             Manajemen Pasien Puskesmas Bina Desa
           </h1>
 
-          {/* Form Input */}
+          {/* Form */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
             {[
               ["Nama", "name"],
@@ -246,9 +214,6 @@ function Manajemen() {
               {editId ? "Update" : "Tambah"}
             </button>
           </div>
-
-          {/* Tabel Pasien
-          <PatienTable data={Patientable} search={search} setForm={setForm} setEditId={setEditId} fetchPatients={fetchPatients} /> */}
         </div>
       </div>
     </div>
