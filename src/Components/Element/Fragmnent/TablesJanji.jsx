@@ -14,7 +14,6 @@ function JanjiPasien() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [doctors, setDoctors] = useState([]);
-
   const navigate = useNavigate();
 
   const fetchAppointments = () => {
@@ -25,9 +24,6 @@ function JanjiPasien() {
 
   useEffect(() => {
     fetchAppointments();
-  }, []);
-
-  useEffect(() => {
     fetch("http://localhost:3001/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
@@ -55,7 +51,7 @@ function JanjiPasien() {
   };
 
   const handleEdit = (id) => {
-    navigate(`/janjidokter/${id}`);
+    navigate(`/dokter/${id}`);
   };
 
   const filteredAppointments = appointments.filter(
@@ -172,69 +168,89 @@ function JanjiPasien() {
           />
         </div>
 
-        {/* Table */}
-       {/* Tampilan Desktop (MD ke atas) */}
-<div className="hidden md:block overflow-x-auto rounded-xl shadow bg-white">
-  <table className="w-full table-auto text-sm text-left min-w-[720px]">
-    <thead className="bg-green-100 text-green-700">
-      <tr>
-        <th className="border p-3">#</th>
-        <th className="border p-3">Nama Pasien</th>
-        <th className="border p-3">Dokter</th>
-        <th className="border p-3">Spesialis</th>
-        <th className="border p-3">Tanggal</th>
-        <th className="border p-3">Waktu</th>
-        <th className="border p-3">Status</th>
-        <th className="border p-3">Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      {filteredAppointments.map((appt, i) => (
-        <tr key={appt.id} className="hover:bg-gray-50">
-          <td className="px-4 py-2">{i + 1}</td>
-          <td className="px-4 py-2">{appt.patient}</td>
-          <td className="px-4 py-2">{getDoctorNameById(appt.doctor)}</td>
-          <td className="px-4 py-2">{appt.spesialis}</td>
-          <td className="px-4 py-2">{appt.date}</td>
-          <td className="px-4 py-2">{appt.time}</td>
-          <td className="px-4 py-2">
-            <span className={`px-3 py-1 rounded-full font-medium ${statusColor[appt.status]}`}>
-              {appt.status}
-            </span>
-          </td>
-          <td className="px-4 py-2 space-x-2">
-            {/* tombol edit & delete */}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
-
-{/* Tampilan Mobile */}
-<div className="md:hidden space-y-4">
-  {filteredAppointments.map((appt, i) => (
-    <div key={appt.id} className="bg-white rounded-lg shadow p-4">
-      <div className="font-semibold text-green-700">{appt.patient}</div>
-      <div className="text-sm text-gray-700">
-        <div><span className="font-medium">Dokter:</span> {getDoctorNameById(appt.doctor)}</div>
-        <div><span className="font-medium">Spesialis:</span> {appt.spesialis}</div>
-        <div><span className="font-medium">Tanggal:</span> {appt.date}</div>
-        <div><span className="font-medium">Waktu:</span> {appt.time}</div>
-        <div><span className="font-medium">Status:</span>
-          <span className={`ml-2 px-2 py-0.5 rounded-full font-medium text-xs ${statusColor[appt.status]}`}>
-            {appt.status}
-          </span>
+        {/* Tabel untuk Desktop */}
+        <div className="hidden md:block overflow-x-auto rounded-xl shadow bg-white">
+          <table className="w-full table-auto text-sm text-left min-w-[720px]">
+            <thead className="bg-green-100 text-green-700">
+              <tr>
+                <th className="border p-3">#</th>
+                <th className="border p-3">Nama Pasien</th>
+                <th className="border p-3">Dokter</th>
+                <th className="border p-3">Spesialis</th>
+                <th className="border p-3">Tanggal</th>
+                <th className="border p-3">Waktu</th>
+                <th className="border p-3">Status</th>
+                <th className="border p-3">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredAppointments.map((appt, i) => (
+                <tr key={appt.id} className="hover:bg-gray-50">
+                  <td className="px-4 py-2">{i + 1}</td>
+                  <td className="px-4 py-2">{appt.patient}</td>
+                  <td className="px-4 py-2">{getDoctorNameById(appt.doctor)}</td>
+                  <td className="px-4 py-2">{appt.spesialis}</td>
+                  <td className="px-4 py-2">{appt.date}</td>
+                  <td className="px-4 py-2">{appt.time}</td>
+                  <td className="px-4 py-2">
+                    <span className={`px-3 py-1 rounded-full font-medium ${statusColor[appt.status]}`}>
+                      {appt.status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-2 space-x-2">
+                    <button
+                      onClick={() => handleEdit(appt.id)}
+                      className="text-blue-600 hover:underline text-sm inline-flex items-center gap-1"
+                    >
+                      <FaEdit />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(appt.id)}
+                      className="text-red-600 hover:underline text-sm inline-flex items-center gap-1"
+                    >
+                      <FaTrash /> 
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
-      <div className="flex gap-4 mt-2">
-        <button onClick={() => handleEdit(appt.id)} className="text-blue-600 hover:underline text-sm">Edit</button>
-        <button onClick={() => handleDelete(appt.id)} className="text-red-600 hover:underline text-sm">Hapus</button>
-      </div>
-    </div>
-  ))}
-</div>
 
+        {/* Tampilan Mobile: Card */}
+        <div className="md:hidden space-y-4">
+          {filteredAppointments.map((appt) => (
+            <div key={appt.id} className="bg-white rounded-lg shadow p-4">
+              <div className="font-semibold text-green-700">{appt.patient}</div>
+              <div className="text-sm text-gray-700">
+                <div><span className="font-medium">Dokter:</span> {getDoctorNameById(appt.doctor)}</div>
+                <div><span className="font-medium">Spesialis:</span> {appt.spesialis}</div>
+                <div><span className="font-medium">Tanggal:</span> {appt.date}</div>
+                <div><span className="font-medium">Waktu:</span> {appt.time}</div>
+                <div>
+                  <span className="font-medium">Status:</span>
+                  <span className={`ml-2 px-2 py-0.5 rounded-full font-medium text-xs ${statusColor[appt.status]}`}>
+                    {appt.status}
+                  </span>
+                </div>
+              </div>
+              <div className="flex gap-4 mt-2">
+                <button
+                  onClick={() => handleEdit(appt.id)}
+                  className="text-blue-600 hover:underline text-sm"
+                >
+                  <FaEdit/> 
+                </button>
+                <button
+                  onClick={() => handleDelete(appt.id)}
+                  className="text-red-600 hover:underline text-sm"
+                >
+                  <FaTrash/> 
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

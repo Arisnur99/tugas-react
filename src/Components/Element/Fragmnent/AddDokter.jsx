@@ -72,13 +72,47 @@ const AddDokter = () => {
 
       {/* Sidebar Desktop */}
       <div className="hidden md:block bg-green-700 text-white w-64 h-full p-4 fixed top-0 left-0 z-50 text-base">
-        <h2 className="text-2xl font-bold mb-6 leading-tight">Puskesmas <br /> Bina Desa</h2>
+        <h2 className="text-2xl font-bold mb-6 leading-tight">
+          Puskesmas <br /> Bina Desa
+        </h2>
         <ul className="space-y-4">
-          <li><a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a></li>
-          <li><a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a></li>
-          <li><a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a></li>
-          <li><a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a></li>
-          <li><a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a></li>
+          <li>
+            <a
+              href="dashboard"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
+              Pasien
+            </a>
+          </li>
+          <li>
+            <a
+              href="tabledokter"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Janji Dokter
+            </a>
+          </li>
+          <li>
+            <a
+              href="tablesjanji"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Table Janji
+            </a>
+          </li>
+          <li>
+            <a
+              href="tableobat"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Obat
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -91,11 +125,46 @@ const AddDokter = () => {
         <div className="p-4">
           <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
           <ul className="space-y-4">
-            <li><a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a></li>
-            <li><a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a></li>
-            <li><a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a></li>
-            <li><a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a></li>
-            <li><a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a></li>
+            <li>
+              <a
+                href="dashboard"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                href="patients"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Pasien
+              </a>
+            </li>
+            <li>
+              <a
+                href="tabledokter"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Janji Dokter
+              </a>
+            </li>
+            <li>
+              <a
+                href="tablesjanji"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Table Janji
+              </a>
+            </li>
+            <li>
+              <a
+                href="tableobat"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Obat
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -107,7 +176,7 @@ const AddDokter = () => {
           className="text-2xl text-green-700 mb-4 md:hidden"
           onClick={() => setSidebarOpen(true)}
         >
-          ☰ 
+          ☰
         </button>
 
         <div className="bg-white p-6 rounded shadow">

@@ -3,19 +3,40 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-// ... semua import tetap sama
+
 const TabelDokter = () => {
   const [dokterList, setDokterList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
-  // ... fetchDokter, useEffect, handleDelete tetap sama
-
   const filteredDokter = dokterList.filter((dokter) =>
     dokter.nama.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const fetchDokter = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/doctors"); // Pastikan URL ini benar
+      const data = await response.json();
+      setDokterList(data);
+    } catch (error) {
+      console.error("Gagal memuat data dokter:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDokter();
+  }, []);
+  const handleDelete = async (id) => {
+    const confirm = window.confirm("Yakin ingin menghapus?");
+    if (confirm) {
+      await fetch(`http://localhost:3001/doctrs/${id}`, {
+        method: "DELETE",
+      });
+      fetchDokter(); 
+    }
+  };
+  
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-sm">
       {/* Overlay Mobile */}
@@ -182,7 +203,7 @@ const TabelDokter = () => {
                       <button
                         className="text-blue-600 hover:text-blue-800"
                         onClick={() =>
-                          navigate("/adddokter", { state: dokter })
+                          navigate("/addokter", { state: dokter })
                         }
                       >
                         <FaEdit />

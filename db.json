@@ -259,15 +259,6 @@
       "status": "Menunggu"
     },
     {
-      "id": "5ed0",
-      "patient": "satrio",
-      "doctor": "45f4",
-      "spesialis": "jiwa",
-      "date": "2025-05-17",
-      "time": "09:55",
-      "status": "Menunggu"
-    },
-    {
       "id": "5037",
       "patient": "aziz",
       "doctor": "45f8",
@@ -279,12 +270,12 @@
   ],
   "medicines": [
     {
-      "id": "obat1746264572172",
       "name": "promag",
       "type": "paracetamol",
       "description": "obat untuk mag",
       "stock": 50,
-      "price": 1000
+      "price": 1000,
+      "id": "obat1746264572172"
     },
     {
       "id": "obat1746265228430",

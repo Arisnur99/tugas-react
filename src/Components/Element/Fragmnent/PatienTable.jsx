@@ -121,7 +121,9 @@ const PatienTable = () => {
             >
               <FaBars />
             </button>
-            <h2 className="text-lg font-semibold text-green-700">Daftar Pasien</h2>
+            <h2 className="text-lg font-semibold text-green-700">
+              Daftar Pasien
+            </h2>
           </div>
 
           <div className="flex justify-between items-center mb-4">
@@ -145,79 +147,118 @@ const PatienTable = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
 
-{/* Tabel untuk Laptop/Desktop */}
-<div className="hidden md:block w-full overflow-x-auto bg-white rounded-lg shadow mt-6">
-  <table className="min-w-full border-collapse text-sm">
-    <thead className="bg-green-100 text-green-700">
-      <tr>
-        <th className="p-3 border">Nama</th>
-        <th className="p-3 border">Umur</th>
-        <th className="p-3 border">Alamat</th>
-        <th className="p-3 border">Telepon</th>
-        <th className="p-3 border">Diagnosis</th>
-        <th className="p-3 border">Riwayat Medis</th>
-        <th className="p-3 border">Status</th>
-        <th className="p-3 border">Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      {filtered.length > 0 ? (
-        filtered.map((patient) => (
-          <tr key={patient.id} className="hover:bg-gray-100 text-gray-700">
-            <td className="p-3 border">{patient.name}</td>
-            <td className="p-3 border">{patient.age}</td>
-            <td className="p-3 border">{patient.address}</td>
-            <td className="p-3 border">{patient.phone}</td>
-            <td className="p-3 border">{patient.diagnosis}</td>
-            <td className="p-3 border">{patient.medicalHistory}</td>
-            <td className="p-3 border">{patient.status}</td>
-            <td className="p-3 border text-center space-x-2">
-              <Link to={`/manajemen?id=${patient.id}`} className="text-blue-600 hover:text-blue-800">
-                <FaEdit />
-              </Link>
-              <button onClick={() => handleDelete(patient.id)} className="text-red-600 hover:text-red-800">
-                <FaTrash />
-              </button>
-            </td>
-          </tr>
-        ))
-      ) : (
-        <tr>
-          <td colSpan="8" className="text-center p-4 text-gray-500">Tidak ada data ditemukan.</td>
-        </tr>
-      )}
-    </tbody>
-  </table>
-</div>
+          {/* Tabel untuk Laptop/Desktop */}
+          <div className="hidden md:block w-full overflow-x-auto bg-white rounded-lg shadow mt-6">
+            <table className="min-w-full border-collapse text-sm">
+              <thead className="bg-green-100 text-green-700">
+                <tr>
+                  <th className="p-3 border">Nama</th>
+                  <th className="p-3 border">Umur</th>
+                  <th className="p-3 border">Alamat</th>
+                  <th className="p-3 border">Telepon</th>
+                  <th className="p-3 border">Diagnosis</th>
+                  <th className="p-3 border">Riwayat Medis</th>
+                  <th className="p-3 border">Status</th>
+                  <th className="p-3 border">Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.length > 0 ? (
+                  filtered.map((patient) => (
+                    <tr
+                      key={patient.id}
+                      className="hover:bg-gray-100 text-gray-700"
+                    >
+                      <td className="p-3 border">{patient.name}</td>
+                      <td className="p-3 border">{patient.age}</td>
+                      <td className="p-3 border">{patient.address}</td>
+                      <td className="p-3 border">{patient.phone}</td>
+                      <td className="p-3 border">{patient.diagnosis}</td>
+                      <td className="p-3 border">{patient.medicalHistory}</td>
+                      <td className="p-3 border">{patient.status}</td>
+                      <td className="p-3 border text-center space-x-2">
+                        <Link
+                          to={`/manajemen?id=${patient.id}`}
+                          className="text-blue-600 hover:text-blue-800"
+                        >
+                          <FaEdit />
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(patient.id)}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          <FaTrash />
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="8" className="text-center p-4 text-gray-500">
+                      Tidak ada data ditemukan.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
 
-{/* Card untuk Mobile/HP */}
-<div className="md:hidden space-y-4">
-  {filtered.length > 0 ? (
-    filtered.map((patient) => (
-      <div key={patient.id} className="bg-white p-4 rounded-lg shadow text-sm text-gray-700">
-        <p><span className="font-semibold">Nama:</span> {patient.name}</p>
-        <p><span className="font-semibold">Umur:</span> {patient.age}</p>
-        <p><span className="font-semibold">Alamat:</span> {patient.address}</p>
-        <p><span className="font-semibold">Telepon:</span> {patient.phone}</p>
-        <p><span className="font-semibold">Diagnosis:</span> {patient.diagnosis}</p>
-        <p><span className="font-semibold">Riwayat Medis:</span> {patient.medicalHistory}</p>
-        <p><span className="font-semibold">Status:</span> {patient.status}</p>
-        <div className="flex justify-start items-center mt-2 space-x-3">
-          <Link to={`/manajemen?id=${patient.id}`} className="text-blue-600 hover:text-blue-800">
-            <FaEdit />
-          </Link>
-          <button onClick={() => handleDelete(patient.id)} className="text-red-600 hover:text-red-800">
-            <FaTrash />
-          </button>
-        </div>
-      </div>
-    ))
-  ) : (
-    <div className="text-center text-gray-500">Tidak ada data ditemukan.</div>
-  )}
-</div>
-
-
+          {/* Card untuk Mobile/HP */}
+          <div className="md:hidden space-y-4">
+            {filtered.length > 0 ? (
+              filtered.map((patient) => (
+                <div
+                  key={patient.id}
+                  className="bg-white p-4 rounded-lg shadow text-sm text-gray-700"
+                >
+                  <p>
+                    <span className="font-semibold">Nama:</span> {patient.name}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Umur:</span> {patient.age}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Alamat:</span>{" "}
+                    {patient.address}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Telepon:</span>{" "}
+                    {patient.phone}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Diagnosis:</span>{" "}
+                    {patient.diagnosis}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Riwayat Medis:</span>{" "}
+                    {patient.medicalHistory}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Status:</span>{" "}
+                    {patient.status}
+                  </p>
+                  <div className="flex items-center mt-2 gap-3">
+                    <Link
+                      to={`/manajemen?id=${patient.id}`}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      <FaEdit />
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(patient.id)}
+                      className="text-red-600 hover:text-red-800"
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="text-center text-gray-500">
+                Tidak ada data ditemukan.
+              </div>
+            )}
+          </div>
         </main>
       </div>
     </>

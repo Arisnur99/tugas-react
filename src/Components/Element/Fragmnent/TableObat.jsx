@@ -76,7 +76,10 @@ const TableObatPage = () => {
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
           <li className="mb-4">
-            <Link to="dashboard" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="dashboard"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Dashboard
             </Link>
           </li>
@@ -86,17 +89,26 @@ const TableObatPage = () => {
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="tabledokter" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="tabledokter"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Janji Dokter
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="tablesjanji" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="tablesjanji"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Table Janji
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="tableobat" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="tableobat"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Obat
             </Link>
           </li>
@@ -137,8 +149,56 @@ const TableObatPage = () => {
           />
         </div>
 
-        {/* Medicines Table */}
-        <div className="overflow-x-auto bg-white rounded shadow">
+        {/* Tampilan Kartu untuk Mobile */}
+        <div className="grid grid-cols-1 sm:hidden gap-4">
+          {filteredMedicines.length > 0 ? (
+            filteredMedicines.map((obat) => (
+              <div
+                key={obat.id}
+                className="bg-white p-4 rounded shadow border border-gray-200"
+              >
+                <h3 className="text-lg font-semibold text-green-700">
+                  {obat.name}
+                </h3>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Jenis:</span> {obat.type}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Deskripsi:</span>{" "}
+                  {obat.description}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Stok:</span> {obat.stock}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Harga:</span> Rp{" "}
+                  {obat.price?.toLocaleString() || 0}
+                </p>
+                <div className="mt-2 flex gap-2">
+                  <button
+                    onClick={() => handleEdit(obat)}
+                    className="text-blue-600 hover:text-blue-800"
+                    title="Edit"
+                  >
+                    <FaEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(obat.id)}
+                    className="text-red-600 hover:text-red-800"
+                    title="Hapus"
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-gray-500">Tidak ada data obat.</p>
+          )}
+        </div>
+
+        {/* Tampilan Tabel untuk Desktop */}
+        <div className="overflow-x-auto hidden sm:block bg-white rounded shadow">
           <table className="w-full min-w-max text-sm border text-left">
             <thead className="bg-green-100 text-green-700">
               <tr>

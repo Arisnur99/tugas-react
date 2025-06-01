@@ -161,7 +161,6 @@ const JanjiTemu = () => {
               <br />
               Bina Desa
             </h2>
-           
           </div>
           <ul>
             <li className="mb-4">
