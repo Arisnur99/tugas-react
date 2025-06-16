@@ -128,6 +128,24 @@ function JanjiPasien() {
               Obat
             </a>
           </li>
+          <li>
+            <a
+              href="/datamedis"
+              onClick={() => setSidebarOpen(false)}
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </a>
+          </li>
+          <li>
+            <a
+              href="/rekammedis"
+              onClick={() => setSidebarOpen(false)}
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </a>
+          </li>
         </ul>
       </div>
 

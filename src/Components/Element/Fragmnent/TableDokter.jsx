@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-
 const TabelDokter = () => {
   const [dokterList, setDokterList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,15 +27,46 @@ const TabelDokter = () => {
     fetchDokter();
   }, []);
   const handleDelete = async (id) => {
-    const confirm = window.confirm("Yakin ingin menghapus?");
-    if (confirm) {
-      await fetch(`http://localhost:3001/doctrs/${id}`, {
-        method: "DELETE",
-      });
-      fetchDokter(); 
+    const result = await Swal.fire({
+      title: "Yakin ingin menghapus?",
+      text: "Data yang dihapus tidak bisa dikembalikan.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        const response = await fetch(`http://localhost:3001/doctors/${id}`, {
+          method: "DELETE",
+        });
+
+        if (!response.ok) {
+          throw new Error("Gagal menghapus data");
+        }
+
+        Swal.fire({
+          title: "Berhasil!",
+          text: "Data telah dihapus.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+
+        fetchDokter(); // refresh data
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: error.message,
+          icon: "error",
+        });
+      }
     }
   };
-  
+
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 text-sm">
       {/* Overlay Mobile */}
@@ -90,6 +120,22 @@ const TabelDokter = () => {
               Obat
             </a>
           </li>
+          <li>
+            <a
+              href="datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </a>
+          </li>
+          <li>
+            <a
+              href="rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -140,6 +186,22 @@ const TabelDokter = () => {
                 className="block hover:bg-green-600 p-2 rounded"
               >
                 Obat
+              </a>
+            </li>
+            <li>
+              <a
+                href="datamedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Tenaga Medis
+              </a>
+            </li>
+            <li>
+              <a
+                href="rekammedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Rekam Medis
               </a>
             </li>
           </ul>
@@ -202,9 +264,7 @@ const TabelDokter = () => {
                     <td className="px-2 py-2 text-center space-x-2">
                       <button
                         className="text-blue-600 hover:text-blue-800"
-                        onClick={() =>
-                          navigate("/addokter", { state: dokter })
-                        }
+                        onClick={() => navigate("/addokter", { state: dokter })}
                       >
                         <FaEdit />
                       </button>

@@ -106,6 +106,22 @@ const PatienTable = () => {
                   Obat
                 </a>
               </li>
+              <li className="mb-4">
+                <a
+                  href="datamedis"
+                  className="block hover:bg-green-600 p-2 rounded"
+                >
+                  Tenaga Medis
+                </a>
+              </li>
+              <li className="mb-4">
+                <a
+                  href="rekammedis"
+                  className="block hover:bg-green-600 p-2 rounded"
+                >
+                  Rekam Medis
+                </a>
+              </li>
             </ul>
           </nav>
         </aside>
@@ -154,11 +170,10 @@ const PatienTable = () => {
                 <tr>
                   <th className="p-3 border">Nama</th>
                   <th className="p-3 border">Umur</th>
+                  <th className="p-3 border">Tanggal Lahir</th>
                   <th className="p-3 border">Alamat</th>
-                  <th className="p-3 border">Telepon</th>
-                  <th className="p-3 border">Diagnosis</th>
-                  <th className="p-3 border">Riwayat Medis</th>
-                  <th className="p-3 border">Status</th>
+                  <th className="p-3 border">No Telephone</th>
+                  <th className="p-3 border">Gender</th>
                   <th className="p-3 border">Aksi</th>
                 </tr>
               </thead>
@@ -172,10 +187,10 @@ const PatienTable = () => {
                       <td className="p-3 border">{patient.name}</td>
                       <td className="p-3 border">{patient.age}</td>
                       <td className="p-3 border">{patient.address}</td>
-                      <td className="p-3 border">{patient.phone}</td>
+                      <td className="p-3 border">{patient.alamat}</td>
                       <td className="p-3 border">{patient.diagnosis}</td>
                       <td className="p-3 border">{patient.medicalHistory}</td>
-                      <td className="p-3 border">{patient.status}</td>
+
                       <td className="p-3 border text-center space-x-2">
                         <Link
                           to={`/manajemen?id=${patient.id}`}
@@ -218,25 +233,22 @@ const PatienTable = () => {
                     <span className="font-semibold">Umur:</span> {patient.age}
                   </p>
                   <p>
-                    <span className="font-semibold">Alamat:</span>{" "}
+                    <span className="font-semibold">Tanggal Lahir:</span>{" "}
                     {patient.address}
                   </p>
                   <p>
-                    <span className="font-semibold">Telepon:</span>{" "}
+                    <span className="font-semibold">Alamat:</span>{" "}
                     {patient.phone}
                   </p>
                   <p>
-                    <span className="font-semibold">Diagnosis:</span>{" "}
+                    <span className="font-semibold">No Telephone:</span>{" "}
                     {patient.diagnosis}
                   </p>
                   <p>
-                    <span className="font-semibold">Riwayat Medis:</span>{" "}
+                    <span className="font-semibold">Gender:</span>{" "}
                     {patient.medicalHistory}
                   </p>
-                  <p>
-                    <span className="font-semibold">Status:</span>{" "}
-                    {patient.status}
-                  </p>
+
                   <div className="flex items-center mt-2 gap-3">
                     <Link
                       to={`/manajemen?id=${patient.id}`}

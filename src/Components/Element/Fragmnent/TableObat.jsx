@@ -84,7 +84,10 @@ const TableObatPage = () => {
             </Link>
           </li>
           <li className="mb-4">
-            <Link to="patients" className="block hover:bg-green-600 p-2 rounded">
+            <Link
+              to="patients"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
               Pasien
             </Link>
           </li>
@@ -112,6 +115,22 @@ const TableObatPage = () => {
               Obat
             </Link>
           </li>
+          <li className="mb-4">
+            <Link
+              to="datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </Link>
+          </li>
+          <li className="mb-4">
+            <Link
+              to="rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </Link>
+          </li>
         </ul>
       </aside>
 
@@ -126,7 +145,9 @@ const TableObatPage = () => {
           <FaBars size={24} />
         </button>
 
-        <h1 className="text-xl font-bold text-green-700 mb-0">Manajemen Obat</h1>
+        <h1 className="text-xl font-bold text-green-700 mb-0">
+          Manajemen Obat
+        </h1>
 
         {/* Add Button */}
         <div className="flex justify-end mb-4">

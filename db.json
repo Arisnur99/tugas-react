@@ -1,114 +1,31 @@
 {
   "patients": [
     {
-      "id": "2001",
+      "id": "e63b",
+      "name": "riski",
+      "age": "20",
+      "address": "2-09-2002",
+      "alamat": "jl. kemantren raya",
+      "diagnosis": "08111",
+      "medicalHistory": "laki-laki"
+    },
+    {
+      "id": "984d",
+      "name": "dimas",
+      "age": "19",
+      "address": "20-06-2004",
+      "alamat": "jl. siliwangi",
+      "diagnosis": "08111",
+      "medicalHistory": "perempuan"
+    },
+    {
+      "id": "b949",
       "name": "amrul",
       "age": "15",
-      "address": "solo",
-      "phone": "08111",
-      "diagnosis": "sesak",
-      "medicalHistory": "tidak jelas",
-      "appointmentCare": "24-07-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "774a",
-      "name": "aris",
-      "age": "20",
-      "address": "wonosari",
-      "phone": "09111",
-      "diagnosis": "pusing",
-      "medicalHistory": "demam",
-      "appointmentCare": "20-10-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "5c3a",
-      "name": "alif",
-      "age": "20",
-      "address": "kendal",
-      "phone": "0111",
-      "diagnosis": "demam",
-      "medicalHistory": "sesak",
-      "appointmentCare": "20-10-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "7c08",
-      "name": "andi",
-      "age": "30",
-      "address": "jogja",
-      "phone": "09111",
-      "diagnosis": "gatal",
-      "medicalHistory": "alergi",
-      "appointmentCare": "20-06-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "e7d1",
-      "name": "hanifah",
-      "age": "25",
-      "address": "mangkang",
-      "phone": "04111",
-      "diagnosis": "pingsan",
-      "medicalHistory": "lemas",
-      "appointmentCare": "15-05-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "00dc",
-      "name": "iman",
-      "age": "15",
-      "address": "kaliwungu",
-      "phone": "02111",
-      "diagnosis": "sesak",
-      "medicalHistory": "pusing",
-      "appointmentCare": "20-05-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "6876",
-      "name": "zaki",
-      "age": "20",
-      "address": "mangkang kulon",
-      "phone": "04111",
-      "diagnosis": "sakit perut",
-      "medicalHistory": "magh",
-      "appointmentCare": "20-02-2022",
-      "status": "menunggu"
-    },
-    {
-      "id": "350b",
-      "name": "arfi",
-      "age": "10",
-      "address": "mangkang",
-      "phone": "0211",
-      "diagnosis": "demam",
-      "medicalHistory": "panas",
-      "appointmentCare": "20-02-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "9553",
-      "name": "rizal",
-      "age": "5",
-      "address": "ungaran",
-      "phone": "04111",
-      "diagnosis": "panas",
-      "medicalHistory": "pilek",
-      "appointmentCare": "20-05-2025",
-      "status": "menunggu"
-    },
-    {
-      "id": "4200",
-      "name": "fitri",
-      "age": "12",
-      "address": "banyumanik",
-      "phone": "04111",
-      "diagnosis": "sesak",
-      "medicalHistory": "batuk",
-      "appointmentCare": "20-03-2025",
-      "status": "menunggu"
+      "address": "19-10-20013",
+      "alamat": "jl. sokarno hatta",
+      "diagnosis": "08111",
+      "medicalHistory": "laki-laki"
     }
   ],
   "doctors": [
@@ -116,12 +33,12 @@
       "id": "45f8",
       "nama": "dr nayla",
       "spesialis": "paru",
-      "jadwal": "rabu-sabtu"
+      "jadwal": "rabu-kamis"
     },
     {
       "id": "45f4",
       "nama": "dr fitri",
-      "spesialis": "jiwa",
+      "spesialis": "jantung",
       "jadwal": "senin-rabu"
     },
     {
@@ -308,6 +225,61 @@
       "description": "menambah semangat",
       "stock": 50,
       "price": 20000
+    }
+  ],
+  "tenaga_medis": [
+    {
+      "id": "1726",
+      "nama": "fajriya",
+      "jabatan": "dokter"
+    },
+    {
+      "id": "0766",
+      "nama": "ahmad",
+      "jabatan": "perawat"
+    },
+    {
+      "id": "dbed",
+      "nama": "altan fahkrizal",
+      "jabatan": "Direktur"
+    }
+  ],
+  "rekam_medis": [
+    {
+      "id": "1",
+      "id_pasien": 1,
+      "tanggal": "",
+      "keluhan": "",
+      "diagnosa": "",
+      "tindakan": "",
+      "obat": [
+        "",
+        ""
+      ]
+    },
+    {
+      "id": "d06d",
+      "id_pasien": 984,
+      "tanggal": "2025-06-19",
+      "keluhan": "batuk",
+      "diagnosa": "sesak",
+      "tindakan": "pengecekan jantung",
+      "obat": [
+        "obat",
+        "sirup"
+      ]
+    },
+    {
+      "id": "6345",
+      "id_pasien": null,
+      "tanggal": "2025-06-19",
+      "keluhan": "batuk",
+      "diagnosa": "sesak",
+      "tindakan": "pengecekan jantung",
+      "obat": [
+        "obat",
+        "sirup"
+      ]
     }
   ]
 }

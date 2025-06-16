@@ -8,11 +8,9 @@ function Manajemen() {
     name: "",
     age: "",
     address: "",
-    phone: "",
+    alamat: "",
     diagnosis: "",
     medicalHistory: "",
-    appointmentCare: "",
-    status: "",
   });
   const [editId, setEditId] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -75,11 +73,9 @@ function Manajemen() {
         name: "",
         age: "",
         address: "",
-        phone: "",
+        alamat: "",
         diagnosis: "",
         medicalHistory: "",
-        appointmentCare: "",
-        status: "",
       });
       setEditId(null);
 
@@ -137,6 +133,12 @@ function Manajemen() {
           <li className="mb-4">
             <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
           </li>
+          <li className="mb-4">
+            <a href="datamedis" className="block hover:bg-green-600 p-2 rounded">Tenaga Medis</a>
+          </li>
+          <li className="mb-4">
+            <a href="rekammedis" className="block hover:bg-green-600 p-2 rounded">Rekam Medis</a>
+          </li>
         </ul>
       </div>
 
@@ -164,6 +166,12 @@ function Manajemen() {
             <li className="mb-4">
               <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
             </li>
+            <li className="mb-4">
+              <a href="datamedis" className="block hover:bg-green-600 p-2 rounded">Tenaga Medis</a>
+            </li>
+            <li className="mb-4">
+              <a href="rekammedis" className="block hover:bg-green-600 p-2 rounded">Rekam medis</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -175,7 +183,7 @@ function Manajemen() {
           className="text-2xl text-green-700 mb-4 md:hidden"
           onClick={() => setSidebarOpen(true)}
         >
-          ☰ 
+          ☰
         </button>
 
         <div className="bg-white p-4 rounded shadow">
@@ -188,19 +196,17 @@ function Manajemen() {
             {[
               ["Nama", "name"],
               ["Umur", "age", "number"],
-              ["Alamat", "address"],
-              ["Telepon", "phone"],
-              ["Diagnosis", "diagnosis"],
-              ["Riwayat Medis", "medicalHistory"],
-              ["Janji Temu", "appointmentCare"],
-              ["Status Pasien", "status"],
+              ["Tanggal Lahir", "address"],
+              ["Alamat", "alamat"],
+              ["No Telephone", "diagnosis"],
+              ["Gender", "medicalHistory"],
             ].map(([placeholder, key, type = "text"]) => (
               <input
                 key={key}
                 type={type}
                 placeholder={placeholder}
                 className="border p-2 rounded w-full"
-                value={form[key]}
+                value={form[key] || ""}
                 onChange={(e) => setForm({ ...form, [key]: e.target.value })}
               />
             ))}

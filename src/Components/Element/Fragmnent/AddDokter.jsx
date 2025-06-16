@@ -113,6 +113,22 @@ const AddDokter = () => {
               Obat
             </a>
           </li>
+          <li>
+            <a
+              href="datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </a>
+          </li>
+          <li>
+            <a
+              href="rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -163,6 +179,14 @@ const AddDokter = () => {
                 className="block hover:bg-green-600 p-2 rounded"
               >
                 Obat
+              </a>
+            </li>
+            <li>
+              <a
+                href="datamedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+               Tenaga Medis
               </a>
             </li>
           </ul>

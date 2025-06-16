@@ -84,6 +84,12 @@ export default function Dashboard() {
           <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">
             Obat
           </a>
+          <a href="datamedis" className="block hover:bg-green-600 p-2 rounded">
+            Tenaga Medis
+          </a>
+          <a href="rekammedis" className="block hover:bg-green-600 p-2 rounded">
+            Rekam Medis
+          </a>
         </nav>
       </aside>
 

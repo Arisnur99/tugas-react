@@ -99,7 +99,9 @@ const ObatPage = () => {
 
       <aside
         className={`fixed inset-y-0 left-0 w-64 bg-green-700 text-white p-4 z-50 transform transition-transform duration-300 ease-in-out
-          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:z-auto`}
+          ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 md:static md:z-auto`}
       >
         <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
         <ul>
@@ -146,6 +148,24 @@ const ObatPage = () => {
               onClick={() => setSidebarOpen(false)}
             >
               Obat
+            </Link>
+          </li>
+          <li className="mb-4">
+            <Link
+              to="/datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
+              Tenaga Medis
+            </Link>
+          </li>
+          <li className="mb-4">
+            <Link
+              to="/rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+              onClick={() => setSidebarOpen(false)}
+            >
+              Rekam Medis
             </Link>
           </li>
         </ul>

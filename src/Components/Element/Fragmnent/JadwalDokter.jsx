@@ -135,6 +135,22 @@ const JanjiTemu = () => {
               Obat
             </a>
           </li>
+          <li className="mb-4">
+            <a
+              href="datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </a>
+          </li>
+          <li className="mb-4">
+            <a
+              href="rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -201,6 +217,30 @@ const JanjiTemu = () => {
                 className="block hover:bg-green-600 p-2 rounded"
               >
                 Obat
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="datamedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Tenaga Medis
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="datamedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Tenaga Medis
+              </a>
+            </li>
+            <li className="mb-4">
+              <a
+                href="rekammedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Rekam Medis
               </a>
             </li>
           </ul>
