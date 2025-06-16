@@ -227,14 +227,7 @@ const JanjiTemu = () => {
                 Tenaga Medis
               </a>
             </li>
-            <li className="mb-4">
-              <a
-                href="datamedis"
-                className="block hover:bg-green-600 p-2 rounded"
-              >
-                Tenaga Medis
-              </a>
-            </li>
+
             <li className="mb-4">
               <a
                 href="rekammedis"

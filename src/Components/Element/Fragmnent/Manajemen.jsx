@@ -116,28 +116,62 @@ function Manajemen() {
 
       {/* Sidebar Desktop */}
       <div className="hidden md:block bg-green-700 text-white w-64 h-full p-4 fixed top-0 left-0 z-20">
-        <h2 className="text-2xl font-bold mb-6">Puskesmas <br /> Bina Desa</h2>
+        <h2 className="text-2xl font-bold mb-6">
+          Puskesmas <br /> Bina Desa
+        </h2>
         <ul>
           <li className="mb-4">
-            <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a>
+            <a
+              href="dashboard"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Dashboard
+            </a>
           </li>
           <li className="mb-4">
-            <a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a>
+            <a href="patients" className="block hover:bg-green-600 p-2 rounded">
+              Pasien
+            </a>
           </li>
           <li className="mb-4">
-            <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a>
+            <a
+              href="tabledokter"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Janji Dokter
+            </a>
           </li>
           <li className="mb-4">
-            <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a>
+            <a
+              href="tablesjanji"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Table Janji
+            </a>
           </li>
           <li className="mb-4">
-            <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
+            <a
+              href="tableobat"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Obat
+            </a>
           </li>
           <li className="mb-4">
-            <a href="datamedis" className="block hover:bg-green-600 p-2 rounded">Tenaga Medis</a>
+            <a
+              href="datamedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Tenaga Medis
+            </a>
           </li>
           <li className="mb-4">
-            <a href="rekammedis" className="block hover:bg-green-600 p-2 rounded">Rekam Medis</a>
+            <a
+              href="rekammedis"
+              className="block hover:bg-green-600 p-2 rounded"
+            >
+              Rekam Medis
+            </a>
           </li>
         </ul>
       </div>
@@ -152,25 +186,60 @@ function Manajemen() {
           <h2 className="text-2xl font-bold mb-6">Puskesmas Bina Desa</h2>
           <ul>
             <li className="mb-4">
-              <a href="dashboard" className="block hover:bg-green-600 p-2 rounded">Dashboard</a>
+              <a
+                href="dashboard"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Dashboard
+              </a>
             </li>
             <li className="mb-4">
-              <a href="patients" className="block hover:bg-green-600 p-2 rounded">Pasien</a>
+              <a
+                href="patients"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Pasien
+              </a>
             </li>
             <li className="mb-4">
-              <a href="tabledokter" className="block hover:bg-green-600 p-2 rounded">Janji Dokter</a>
+              <a
+                href="tabledokter"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Janji Dokter
+              </a>
             </li>
             <li className="mb-4">
-              <a href="tablesjanji" className="block hover:bg-green-600 p-2 rounded">Table Janji</a>
+              <a
+                href="tablesjanji"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Table Janji
+              </a>
             </li>
             <li className="mb-4">
-              <a href="tableobat" className="block hover:bg-green-600 p-2 rounded">Obat</a>
+              <a
+                href="tableobat"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Obat
+              </a>
             </li>
             <li className="mb-4">
-              <a href="datamedis" className="block hover:bg-green-600 p-2 rounded">Tenaga Medis</a>
+              <a
+                href="datamedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Tenaga Medis
+              </a>
             </li>
             <li className="mb-4">
-              <a href="rekammedis" className="block hover:bg-green-600 p-2 rounded">Rekam medis</a>
+              <a
+                href="rekammedis"
+                className="block hover:bg-green-600 p-2 rounded"
+              >
+                Rekam medis
+              </a>
             </li>
           </ul>
         </div>
